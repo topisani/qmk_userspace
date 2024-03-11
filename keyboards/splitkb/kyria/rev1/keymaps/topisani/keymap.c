@@ -50,6 +50,7 @@ enum tapdance_idxs {
 #define HA(K) MT(MOD_LALT, KC_##K)
 #define HS(K) MT(MOD_LSFT, KC_##K)
 #define HC(K) MT(MOD_LCTL, KC_##K)
+#define HN(K) LT(_NAV, KC_##K)
 #define TABN C(KC_PGUP)
 #define TABP C(KC_PGDN)
 #define TMUX C(KC_SPC)
@@ -68,39 +69,101 @@ reg @ <percent>s<space>=<space>LAYOUT36<ret>j<a-i>is<space><ret>dXs.<backspace>,
                             XXXXXXX ,  K31 , K32 ,     K33 ,XXXXXXX,XXXXXXX,     K34 , K35 , K36 , XXXXXXX                         \
     )
 
+// Q W F P B J L U Y < 
+// A R S T G M N E I O 
+// Z X C D V K H , . / 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_COLEMAK_DH] = LAYOUT36(
-        KC_Q    , KC_W    , HG(F)   , KC_P    , KC_B    , ....... , ....... , KC_J    , KC_L    , HG(U)   , KC_Y    , KC_BSPC , 
-        KC_A    , HA(R)   , HS(S)   , HC(T)   , KC_G    , ....... , ....... , KC_M    , HC(N)   , HS(E)   , HA(I)   , KC_O    , 
-        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , ....... , ....... , KC_K    , KC_H    , KC_COMM , KC_DOT  , KC_SLSH , 
-        ....... , ....... , ....... , XXXXXXX , QK_REP  , KC_SPC  , L_OSL   , QK_AREP , XXXXXXX , ....... , ....... , .......
+        KC_Q    , HN(W)   , HG(F)   , KC_P    , KC_B     , ....... , ....... , KC_J    , KC_L    , HG(U)   , KC_Y    , KC_BSPC , 
+        KC_A    , HA(R)   , HS(S)   , HC(T)   , KC_G     , ....... , ....... , KC_M    , HC(N)   , HS(E)   , HA(I)   , KC_O    , 
+        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V     , ....... , ....... , KC_K    , KC_H    , KC_COMM , KC_DOT  , KC_SLSH , 
+        ....... , ....... , ....... , XXXXXXX , TO(_NAV) , KC_SPC  , L_OSL   , OLSFT   , XXXXXXX , ....... , ....... , .......
     ),
 	[_OSL] = LAYOUT36(
-        KC_GRV  , KC_7    , KC_8    , KC_9    , KC_0    , ....... , ....... , KC_PLUS , KC_LBRC , KC_MINS , KC_RBRC , KC_BSPC , 
-        KC_ESC  , KC_4    , KC_5    , KC_6    , XXXXXXX , ....... , ....... , KC_EQL  , KC_COLN , TO(2)   , KC_QUOT , KC_ENT  , 
-        KC_TAB  , KC_1    , KC_2    , KC_3    , XXXXXXX , ....... , ....... , KC_GRV  , KC_SCLN , KC_UNDS , KC_BSLS , TMUX    , 
-        ....... , ....... , ....... , _______ , _______ , OLSFT   , _______ , XXXXXXX , KC_RCTL , ....... , ....... , .......
+        KC_GRV  , KC_7    , KC_8    , KC_9    , KC_0     , ....... , ....... , KC_PLUS , KC_SCLN , KC_MINS , KC_RBRC , KC_BSPC , 
+        KC_ESC  , KC_4    , KC_5    , KC_6    , XXXXXXX  , ....... , ....... , KC_EQL  , KC_COLN , TO(2)   , KC_QUOT , KC_ENT  , 
+        KC_TAB  , KC_1    , KC_2    , KC_3    , XXXXXXX  , ....... , ....... , KC_GRV  , KC_SCLN , KC_UNDS , KC_BSLS , TMUX    , 
+        ....... , ....... , ....... , _______ , QK_AREP  , OLSFT   , _______ , _______ , KC_RCTL , ....... , ....... , .......
     ),
 	[_NAV] = LAYOUT36(
-        KC_Q    , KC_7    , KC_8    , KC_9    , KC_0    , ....... , ....... , TO(4)   , KC_PGUP , KC_RCTL , KC_PGDN , _______ , 
-        OLGUI   , KC_4    , KC_5    , KC_6    , XXXXXXX , ....... , ....... , XXXXXXX , KC_LEFT , KC_UP   , KC_RGHT , TO(3)   , 
-        TMUX    , KC_1    , KC_2    , KC_3    , XXXXXXX , ....... , ....... , XXXXXXX , KC_HOME , KC_DOWN , KC_END  , TMUX    , 
-        ....... , ....... , ....... , _______ , _______ , TO(0)   , L_OSL   , _______ , _______ , ....... , ....... , .......
+        KC_Q    , KC_7    , KC_8    , KC_9    , KC_0     , ....... , ....... , TO(4)   , KC_PGUP , KC_RCTL , KC_PGDN , _______ , 
+        OLGUI   , KC_4    , KC_5    , KC_6    , XXXXXXX  , ....... , ....... , XXXXXXX , KC_LEFT , KC_UP   , KC_RGHT , TO(3)   , 
+        TMUX    , KC_1    , KC_2    , KC_3    , XXXXXXX  , ....... , ....... , XXXXXXX , KC_HOME , KC_DOWN , KC_END  , TMUX    , 
+        ....... , ....... , ....... , _______ , _______  , TO(0)   , L_OSL   , _______ , _______ , ....... , ....... , .......
     ),
 	[_MOUSE] = LAYOUT36(
-        XXXXXXX , KC_ACL0 , KC_ACL1 , KC_ACL2 , XXXXXXX , ....... , ....... , TABP    , KC_WH_U , KC_BTN1 , KC_WH_D , TABN    , 
-        XXXXXXX , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX , ....... , ....... , KC_BTN4 , KC_MS_L , KC_MS_U , KC_MS_R , KC_BTN5 , 
-        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , ....... , ....... , XXXXXXX , KC_WH_L , KC_MS_D , KC_WH_R , XXXXXXX , 
-        ....... , ....... , ....... , _______ , _______ , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
+        XXXXXXX , KC_ACL0 , KC_ACL1 , KC_ACL2 , XXXXXXX  , ....... , ....... , TABP    , KC_WH_U , KC_BTN1 , KC_WH_D , TABN    , 
+        XXXXXXX , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX  , ....... , ....... , KC_BTN4 , KC_MS_L , KC_MS_U , KC_MS_R , KC_BTN5 , 
+        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX  , ....... , ....... , XXXXXXX , KC_WH_L , KC_MS_D , KC_WH_R , XXXXXXX , 
+        ....... , ....... , ....... , _______ , _______  , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
     ),
 	[_FUNCTION] = LAYOUT36(
-        XXXXXXX , KC_F7   , KC_F8   , KC_F9   , KC_F10  , ....... , ....... , KC_INS  , RGB_VAD , RGB_TOG , RGB_VAI , XXXXXXX , 
-        XXXXXXX , KC_F4   , KC_F5   , KC_F6   , KC_F11  , ....... , ....... , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
-        XXXXXXX , KC_F1   , KC_F2   , KC_F3   , KC_F12  , ....... , ....... , KC_PSCR , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
-        ....... , ....... , ....... , _______ , _______ , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
+        XXXXXXX , KC_F7   , KC_F8   , KC_F9   , KC_F10   , ....... , ....... , KC_INS  , RGB_VAD , RGB_TOG , RGB_VAI , XXXXXXX , 
+        XXXXXXX , KC_F4   , KC_F5   , KC_F6   , KC_F11   , ....... , ....... , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
+        XXXXXXX , KC_F1   , KC_F2   , KC_F3   , KC_F12   , ....... , ....... , KC_PSCR , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
+        ....... , ....... , ....... , _______ , _______  , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
     )
 };
 // clang-format on
+
+
+// Combos 
+enum {
+    COMBO_ESC,
+    COMBO_DASH,
+    COMBO_UNDERSCORE,
+    COMBO_PL,
+    COMBO_PR,
+    COMBO_SQL,
+    COMBO_SQR,
+    COMBO_CURLL,
+    COMBO_CURLR,
+    COMBO_CAPS,
+    COMBO_CAPS_WORD,
+};
+    
+const uint16_t PROGMEM combo_esc[] = {KC_A, HA(R), COMBO_END};
+const uint16_t PROGMEM combo_dash[] = {KC_H, KC_COMMA, COMBO_END};
+const uint16_t PROGMEM combo_underscore[] = {KC_H, KC_DOT, COMBO_END};
+
+const uint16_t PROGMEM combo_pl[] = {HG(F), KC_P, COMBO_END};
+const uint16_t PROGMEM combo_pr[] = {KC_L, HG(U), COMBO_END};
+
+const uint16_t PROGMEM combo_sql[] = {HN(W), HG(F), COMBO_END};
+const uint16_t PROGMEM combo_sqr[] = {HG(U), KC_Y, COMBO_END};
+
+const uint16_t PROGMEM combo_curll[] = {HN(W), KC_P, COMBO_END};
+const uint16_t PROGMEM combo_curlr[] = {KC_L, KC_Y, COMBO_END};
+
+const uint16_t PROGMEM combo_caps[] = { HA(R), KC_D, COMBO_END};
+const uint16_t PROGMEM combo_caps_word[] = {KC_H, HA(I), COMBO_END};
+
+combo_t key_combos[] = {
+    [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
+    [COMBO_DASH] = COMBO(combo_dash, KC_MINUS),
+    [COMBO_UNDERSCORE] = COMBO(combo_underscore, KC_UNDERSCORE),
+    
+    [COMBO_PL] = COMBO(combo_pl, KC_LPRN),
+    [COMBO_PR] = COMBO(combo_pr, KC_RPRN),
+    [COMBO_SQL] = COMBO(combo_sql, KC_LEFT_BRACKET),
+    [COMBO_SQR] = COMBO(combo_sqr, KC_RIGHT_BRACKET),
+    [COMBO_CURLL] = COMBO(combo_curll, KC_LCBR),
+    [COMBO_CURLR] = COMBO(combo_curlr, KC_RCBR),
+    
+    [COMBO_CAPS] = COMBO_ACTION(combo_caps),
+    [COMBO_CAPS_WORD] = COMBO(combo_caps_word, CW_TOGG),
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case COMBO_CAPS:
+      if (pressed) {
+          int m = get_mods();
+          set_mods(m & MOD_MASK_SHIFT ? m & ~MOD_LSFT : m | MOD_LSFT);
+      }
+      break;
+  }
+}
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
@@ -114,7 +177,8 @@ bool oled_task_kb(void) {
         return false;
     }
     if (true || is_keyboard_master()) {
-        oled_set_cursor((oled_max_chars() - 9) / 2, (oled_max_lines() - 1) / 2);
+        oled_set_cursor((oled_max_chars() - 9) / 2, 
+ (oled_max_lines() - 1) / 2);
         switch (get_highest_layer(layer_state | default_layer_state)) {
             case 0:
                 oled_write_P(PSTR(" COLEMAK "), false);
@@ -256,60 +320,3 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_OSL_PANIC] = ACTION_TAP_DANCE_FN(td_osl_panic),
 };
 
-// Combos 
-const uint16_t PROGMEM combo_esc[] = {KC_A, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_dash[] = {KC_H, KC_COMMA, COMBO_END};
-const uint16_t PROGMEM combo_underscore[] = {KC_H, KC_DOT, COMBO_END};
-
-const uint16_t PROGMEM combo_pl[] = {KC_F, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_pr[] = {KC_L, KC_U, COMBO_END};
-
-const uint16_t PROGMEM combo_sql[] = {KC_F, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_sqr[] = {KC_U, KC_Y, COMBO_END};
-
-const uint16_t PROGMEM combo_curll[] = {KC_P, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_curlr[] = {KC_L, KC_Y, COMBO_END};
-
-const uint16_t PROGMEM combo_caps[] = { MT(MOD_LALT, KC_R), KC_D, COMBO_END};
-const uint16_t PROGMEM combo_caps_word[] = {KC_H, MT(MOD_LALT, KC_I), COMBO_END};
-
-enum {
-    COMBO_ESC,
-    COMBO_DASH,
-    COMBO_UNDERSCORE,
-    COMBO_PL,
-    COMBO_PR,
-    COMBO_SQL,
-    COMBO_SQR,
-    COMBO_CURLL,
-    COMBO_CURLR,
-    COMBO_CAPS,
-    COMBO_CAPS_WORD,
-};
-
-combo_t key_combos[] = {
-    [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
-    [COMBO_DASH] = COMBO(combo_dash, KC_MINUS),
-    [COMBO_UNDERSCORE] = COMBO(combo_underscore, KC_UNDERSCORE),
-    
-    [COMBO_PL] = COMBO(combo_pl, KC_LPRN),
-    [COMBO_PR] = COMBO(combo_pr, KC_RPRN),
-    [COMBO_SQL] = COMBO(combo_sql, KC_LEFT_BRACKET),
-    [COMBO_SQR] = COMBO(combo_sqr, KC_RIGHT_BRACKET),
-    [COMBO_CURLL] = COMBO(combo_curll, KC_LCBR),
-    [COMBO_CURLR] = COMBO(combo_curlr, KC_RCBR),
-    
-    [COMBO_CAPS] = COMBO_ACTION(combo_caps),
-    [COMBO_CAPS_WORD] = COMBO(combo_caps_word, CW_TOGG),
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch(combo_index) {
-    case COMBO_CAPS:
-      if (pressed) {
-          int m = get_mods();
-          set_mods(m & MOD_MASK_SHIFT ? m & ~MOD_LSFT : m | MOD_LSFT);
-      }
-      break;
-  }
-}
