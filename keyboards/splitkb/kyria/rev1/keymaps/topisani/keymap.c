@@ -74,34 +74,34 @@ reg @ <percent>s<space>=<space>LAYOUT36<ret>j<a-i>is<space><ret>dXs.<backspace>,
 // Z X C D V K H , . / 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_COLEMAK_DH] = LAYOUT36(
-        KC_Q    , HN(W)   , HG(F)   , KC_P    , KC_B     , ....... , ....... , KC_J    , KC_L    , HG(U)   , KC_Y    , KC_BSPC , 
-        KC_A    , HA(R)   , HS(S)   , HC(T)   , KC_G     , ....... , ....... , KC_M    , HC(N)   , HS(E)   , HA(I)   , KC_O    , 
-        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V     , ....... , ....... , KC_K    , KC_H    , KC_COMM , KC_DOT  , KC_SLSH , 
-        ....... , ....... , ....... , XXXXXXX , TO(_NAV) , KC_SPC  , L_OSL   , OLSFT   , XXXXXXX , ....... , ....... , .......
+        KC_Q    , HN(W)   , HG(F)    , KC_P    , KC_B     , ....... , ....... , KC_J    , KC_L    , HG(U)   , KC_Y    , KC_BSPC , 
+        KC_A    , HA(R)   , HS(S)    , HC(T)   , KC_G     , ....... , ....... , KC_M    , HC(N)   , HS(E)   , HA(I)   , KC_O    , 
+        KC_Z    , KC_X    , KC_C     , KC_D    , KC_V     , ....... , ....... , KC_K    , KC_H    , KC_COMM , KC_DOT  , KC_SLSH , 
+        ....... , ....... , .......  , XXXXXXX , MO(_NAV) , KC_SPC  , L_OSL   , OLSFT   , XXXXXXX , ....... , ....... , .......
     ),
 	[_OSL] = LAYOUT36(
-        KC_GRV  , KC_7    , KC_8    , KC_9    , KC_0     , ....... , ....... , KC_PLUS , KC_SCLN , KC_MINS , KC_RBRC , KC_BSPC , 
-        KC_ESC  , KC_4    , KC_5    , KC_6    , XXXXXXX  , ....... , ....... , KC_EQL  , KC_COLN , TO(2)   , KC_QUOT , KC_ENT  , 
-        KC_TAB  , KC_1    , KC_2    , KC_3    , XXXXXXX  , ....... , ....... , KC_GRV  , KC_SCLN , KC_UNDS , KC_BSLS , TMUX    , 
-        ....... , ....... , ....... , _______ , QK_AREP  , OLSFT   , _______ , _______ , KC_RCTL , ....... , ....... , .......
+        KC_GRV  , KC_7    , HG(8)    , KC_9    , KC_0     , ....... , ....... , KC_PLUS , KC_SCLN , KC_MINS , KC_RBRC , KC_BSPC , 
+        KC_ESC  , HA(4)   , HS(5)    , HC(6)   , XXXXXXX  , ....... , ....... , KC_EQL  , KC_COLN , TO(2)   , KC_QUOT , KC_ENT  , 
+        KC_TAB  , KC_1    , KC_2     , KC_3    , XXXXXXX  , ....... , ....... , KC_GRV  , KC_SCLN , KC_UNDS , KC_BSLS , TMUX    , 
+        ....... , ....... , .......  , _______ , _______  , OLSFT   , _______ , _______ , KC_RCTL , ....... , ....... , .......
     ),
 	[_NAV] = LAYOUT36(
-        KC_Q    , KC_7    , KC_8    , KC_9    , KC_0     , ....... , ....... , TO(4)   , KC_PGUP , KC_RCTL , KC_PGDN , _______ , 
-        OLGUI   , KC_4    , KC_5    , KC_6    , XXXXXXX  , ....... , ....... , XXXXXXX , KC_LEFT , KC_UP   , KC_RGHT , TO(3)   , 
-        TMUX    , KC_1    , KC_2    , KC_3    , XXXXXXX  , ....... , ....... , XXXXXXX , KC_HOME , KC_DOWN , KC_END  , TMUX    , 
-        ....... , ....... , ....... , _______ , _______  , TO(0)   , L_OSL   , _______ , _______ , ....... , ....... , .......
+        KC_Q    , KC_7    , HG(8)    , KC_9    , KC_0     , ....... , ....... , TO(4)   , KC_PGUP , KC_RCTL , KC_PGDN , _______ , 
+        OLGUI   , HA(4)   , HS(5)    , HC(6)   , XXXXXXX  , ....... , ....... , XXXXXXX , KC_LEFT , KC_UP   , KC_RGHT , TO(3)   , 
+        TMUX    , KC_1    , KC_2     , KC_3    , XXXXXXX  , ....... , ....... , XXXXXXX , KC_HOME , KC_DOWN , KC_END  , TMUX    , 
+        ....... , ....... , .......  , _______ , _______  , TO(0)   , L_OSL   , _______ , _______ , ....... , ....... , .......
     ),
 	[_MOUSE] = LAYOUT36(
-        XXXXXXX , KC_ACL0 , KC_ACL1 , KC_ACL2 , XXXXXXX  , ....... , ....... , TABP    , KC_WH_U , KC_BTN1 , KC_WH_D , TABN    , 
-        XXXXXXX , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX  , ....... , ....... , KC_BTN4 , KC_MS_L , KC_MS_U , KC_MS_R , KC_BTN5 , 
-        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX  , ....... , ....... , XXXXXXX , KC_WH_L , KC_MS_D , KC_WH_R , XXXXXXX , 
-        ....... , ....... , ....... , _______ , _______  , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
+        XXXXXXX , KC_BTN3 , HG(BTN2) , KC_BTN1 , XXXXXXX  , ....... , ....... , TABP    , KC_WH_U , KC_BTN1 , KC_WH_D , TABN    , 
+        XXXXXXX , HA(NO)  , HS(NO)   , HC(NO)  , XXXXXXX  , ....... , ....... , KC_BTN4 , KC_MS_L , KC_MS_U , KC_MS_R , KC_BTN5 , 
+        XXXXXXX , XXXXXXX , XXXXXXX  , XXXXXXX , XXXXXXX  , ....... , ....... , XXXXXXX , KC_WH_L , KC_MS_D , KC_WH_R , XXXXXXX , 
+        ....... , ....... , .......  , _______ , _______  , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
     ),
 	[_FUNCTION] = LAYOUT36(
-        XXXXXXX , KC_F7   , KC_F8   , KC_F9   , KC_F10   , ....... , ....... , KC_INS  , RGB_VAD , RGB_TOG , RGB_VAI , XXXXXXX , 
-        XXXXXXX , KC_F4   , KC_F5   , KC_F6   , KC_F11   , ....... , ....... , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
-        XXXXXXX , KC_F1   , KC_F2   , KC_F3   , KC_F12   , ....... , ....... , KC_PSCR , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
-        ....... , ....... , ....... , _______ , _______  , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
+        XXXXXXX , KC_F7   , KC_F8    , KC_F9   , KC_F10   , ....... , ....... , KC_INS  , RGB_VAD , RGB_TOG , RGB_VAI , XXXXXXX , 
+        XXXXXXX , KC_F4   , KC_F5    , KC_F6   , KC_F11   , ....... , ....... , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
+        XXXXXXX , KC_F1   , KC_F2    , KC_F3   , KC_F12   , ....... , ....... , KC_PSCR , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , 
+        ....... , ....... , .......  , _______ , _______  , TO(0)   , _______ , _______ , _______ , ....... , ....... , .......
     )
 };
 // clang-format on
@@ -123,7 +123,7 @@ enum {
 };
     
 const uint16_t PROGMEM combo_esc[] = {KC_A, HA(R), COMBO_END};
-const uint16_t PROGMEM combo_dash[] = {KC_H, KC_COMMA, COMBO_END};
+const uint16_t PROGMEM combo_dash[] = {KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_underscore[] = {KC_H, KC_DOT, COMBO_END};
 
 const uint16_t PROGMEM combo_pl[] = {HG(F), KC_P, COMBO_END};
