@@ -5,6 +5,7 @@
 enum layers {
     _COLEMAK_DH,
     _COMBOREF,
+    _QWERTY,
     _OSL,
     _MOUSE,
     _SYS,
@@ -13,6 +14,7 @@ enum layers {
 
 enum custom_keycodes {
     PANIC = QK_USER,
+    TMUX,
 };
 
 #define OLALT OSM(MOD_LALT)
@@ -31,8 +33,10 @@ enum custom_keycodes {
 #define HN(K) LT(_NAV, KC_##K)
 #define TABN C(KC_PGDN)
 #define TABP C(KC_PGUP)
-#define TMUX C(KC_SPC)
+#define QWERTY DF(_QWERTY)
+#define COLEMAK DF(_COLEMAK_DH)
 
 #define DK_AE RALT(KC_E)
 #define DK_OE RALT(KC_O)
 #define DK_AA RALT(KC_A)
+

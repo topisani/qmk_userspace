@@ -30,16 +30,16 @@ reg @ <percent>s<space>=<space>LAYOUT36<ret>j<a-i>is<space><ret>dXs.<backspace>,
 // Z X C D V K H , . / 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_COLEMAK_DH]=LAYOUT36(
-        KC_Q    , KC_W    , KC_F    , KC_P     , KC_B    , ....... , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , XXXXXXX    , 
+        KC_Q    , KC_W    , KC_F    , KC_P     , KC_B    , ....... , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_SCLN    , 
         KC_A    , HA(R)   , HS(S)   , HC(T)    , KC_G    , ....... , ....... , KC_M     , HC(N)   , HS(E)    , HA(I)   , KC_O       , 
         KC_Z    , KC_X    , KC_C    , KC_D     , KC_V    , ....... , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
-        ....... , ....... , ....... , MO(_NAV) , KC_SPC  , LGNAV   , KC_BSPC , L_OSL    , OLSFT   , .......  , ....... , .......
+        ....... , ....... , ....... , LGNAV , KC_SPC  , MO(_NAV)   , KC_BSPC , L_OSL    , OLSFT   , .......  , ....... , .......
         )       , 
     [_COMBOREF]=LAYOUT36(
-        KC_Q    , KC_W    , KC_F    , KC_P     , KC_B    , ....... , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , XXXXXXX    , 
+        KC_Q    , KC_W    , KC_F    , KC_P     , KC_B    , ....... , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_SCLN    , 
         KC_A    , KC_R    , KC_S    , KC_T     , KC_G    , ....... , ....... , KC_M     , KC_N    , KC_E     , KC_I    , KC_O       , 
         KC_Z    , KC_X    , KC_C    , KC_D     , KC_V    , ....... , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
-        ....... , ....... , ....... , MO(_NAV) , KC_SPC  , _______ , _______ , _______  , OLSFT   , .......  , ....... , .......
+        ....... , ....... , ....... , LGNAV , KC_SPC  , MO(_NAV)   , KC_BSPC , L_OSL    , OLSFT   , .......  , ....... , .......
         )       , 
     [_OSL]=LAYOUT36(
         KC_GRV  , KC_7    , KC_8    , KC_9     , KC_0    , ....... , ....... , KC_PLUS  , KC_SCLN , KC_MINS  , KC_RBRC , XXXXXXX    , 
@@ -140,9 +140,29 @@ void oneshot_layer_changed_user(uint8_t layer) {
     }
 }
 
+int tmux_prefix_mode = 0;
+
+static void send_tmux_prefix(void) {
+    SEND_STRING(SS_LCTL(" "));
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     uint8_t mod_state = get_mods();
+    if (tmux_prefix_mode && record->event.pressed) {
+        send_tmux_prefix();
+        tmux_prefix_mode = 2;
+    }
     switch (keycode) {
+        case TMUX: {
+            if (record->event.pressed) {
+                tmux_prefix_mode = 1;
+            } else {
+                if (tmux_prefix_mode == 1) {
+                    send_tmux_prefix();
+                }
+                tmux_prefix_mode = 0;
+            } 
+        }
         case KC_BSPC: {
             // shift+backspace = delete
             static bool delkey_registered;

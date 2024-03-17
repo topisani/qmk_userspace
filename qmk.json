@@ -1,6 +1,8 @@
 {
     "userspace_version": "1.0",
     "build_targets": [
-        ["splitkb/kyria/rev1", "topisani"]
+        ["splitkb/kyria/rev1", "topisani"],
+        ["preonic/rev3_drop", "topisani"]
+        ["beekeep/piantor", "topisani"]
     ]
 }
