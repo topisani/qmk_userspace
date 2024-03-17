@@ -14,3 +14,4 @@ GRAVE_ESC_ENABLE       = no
 AUDIO_ENABLE 	       = no
 
 VPATH += keyboards/gboards/
+SRC += topisani.c

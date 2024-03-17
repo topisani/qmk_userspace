@@ -44,43 +44,44 @@ reg @ <percent>s<space>=<space>LAYOUT36<ret>j<a-i>is<space><ret>dXs.<backspace>,
 // A R S T G M N E I O 
 // Z X C D V K H , . / 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[_COLEMAK_DH] = LAYOUT36(
-        KC_Q    , HN(W)   , HG(F)    , KC_P    , KC_B     , ....... , ....... , KC_J     , KC_L    , HG(U)    , KC_Y    , KC_BSPC    , 
-        KC_A    , HA(R)   , HS(S)    , HC(T)   , KC_G     , ....... , ....... , KC_M     , HC(N)   , HS(E)    , HA(I)   , KC_O       , 
-        KC_Z    , KC_X    , KC_C     , KC_D    , KC_V     , ....... , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
-        ....... , ....... , .......  , XXXXXXX , MO(_NAV) , KC_SPC  , L_OSL   , OLSFT    , XXXXXXX , .......  , ....... , .......
-    ),
-	[_COMBOREF] = LAYOUT36(
-        KC_Q    , KC_W    , KC_F     , KC_P    , KC_B     , ....... , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_BSPC    , 
-        KC_A    , KC_R    , KC_S     , KC_T    , KC_G     , ....... , ....... , KC_M     , KC_N    , KC_E     , KC_I    , KC_O       , 
-        KC_Z    , KC_X    , KC_C     , KC_D    , KC_V     , ....... , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
-        ....... , ....... , .......  , XXXXXXX , MO(_NAV) , KC_SPC  , L_OSL   , OLSFT    , XXXXXXX , .......  , ....... , .......
-    ),
-	[_OSL] = LAYOUT36(
-        KC_GRV  , KC_7    , HG(8)    , KC_9    , KC_0     , ....... , ....... , KC_PLUS  , KC_SCLN , KC_MINS  , KC_RBRC , KC_BSPC    , 
-        KC_ESC  , HA(4)   , HS(5)    , HC(6)   , XXXXXXX  , ....... , ....... , KC_EQL   , KC_COLN , TO(_NAV) , KC_QUOT , KC_ENT     , 
-        KC_TAB  , KC_1    , KC_2     , KC_3    , XXXXXXX  , ....... , ....... , KC_GRV   , KC_SCLN , KC_UNDS  , KC_BSLS , TMUX       , 
-        ....... , ....... , .......  , _______ , _______  , OLSFT   , L_OSL   , _______  , KC_RCTL , .......  , ....... , .......
-    ),
-	[_NAV] = LAYOUT36(
-        KC_Q    , KC_7    , HG(8)    , KC_9    , KC_0     , ....... , ....... , TO(_SYS) , KC_PGUP , KC_RCTL  , KC_PGDN , _______    , 
-        OLGUI   , HA(4)   , HS(5)    , HC(6)   , XXXXXXX  , ....... , ....... , XXXXXXX  , KC_LEFT , KC_UP    , KC_RGHT , TO(_MOUSE) , 
-        TMUX    , KC_1    , KC_2     , KC_3    , XXXXXXX  , ....... , ....... , XXXXXXX  , KC_HOME , KC_DOWN  , KC_END  , TMUX       , 
-        ....... , ....... , .......  , _______ , _______  , TO(0)   , L_OSL   , _______  , _______ , .......  , ....... , .......
-    ),
-	[_MOUSE] = LAYOUT36(
-        XXXXXXX , KC_BTN3 , HG(BTN2) , KC_BTN1 , XXXXXXX  , ....... , ....... , TABP     , KC_WH_U , KC_BTN1  , KC_WH_D , TABN       , 
-        XXXXXXX , HA(NO)  , HS(NO)   , HC(NO)  , XXXXXXX  , ....... , ....... , KC_BTN4  , KC_MS_L , KC_MS_U  , KC_MS_R , KC_BTN5    , 
-        XXXXXXX , XXXXXXX , XXXXXXX  , XXXXXXX , XXXXXXX  , ....... , ....... , XXXXXXX  , KC_WH_L , KC_MS_D  , KC_WH_R , XXXXXXX    , 
-        ....... , ....... , .......  , _______ , _______  , TO(0)   , L_OSL   , _______  , _______ , .......  , ....... , .......
-    ),
-	[_SYS] = LAYOUT36(
-        XXXXXXX , KC_F7   , KC_F8    , KC_F9   , KC_F10   , ....... , ....... , KC_INS   , RGB_VAD , RGB_TOG  , RGB_VAI , XXXXXXX    , 
-        XXXXXXX , KC_F4   , KC_F5    , KC_F6   , KC_F11   , ....... , ....... , XXXXXXX  , XXXXXXX , XXXXXXX  , XXXXXXX , XXXXXXX    , 
-        XXXXXXX , KC_F1   , KC_F2    , KC_F3   , KC_F12   , ....... , ....... , KC_PSCR  , XXXXXXX , XXXXXXX  , XXXXXXX , XXXXXXX    , 
-        ....... , ....... , .......  , _______ , _______  , TO(0)   , L_OSL   , _______  , _______ , .......  , ....... , .......
-    )
+    [_COLEMAK_DH]=LAYOUT36(
+        KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , .......  , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_SCLN    , 
+        KC_A    , HA(R)   , HS(S)   , HC(T)   , KC_G    , .......  , ....... , KC_M     , HC(N)   , HS(E)    , HA(I)   , KC_O       , 
+        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , .......  , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
+        ....... , ....... , ....... , LGNAV   , KC_SPC  , MO(_NAV) , KC_BSPC , L_OSL    , OLSFT   , .......  , ....... , .......
+        )       , 
+    [_COMBOREF]=LAYOUT36(
+        KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , .......  , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_SCLN    , 
+        KC_A    , KC_R    , KC_S    , KC_T    , KC_G    , .......  , ....... , KC_M     , KC_N    , KC_E     , KC_I    , KC_O       , 
+        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , .......  , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
+        ....... , ....... , ....... , LGNAV   , KC_SPC  , MO(_NAV) , KC_BSPC , L_OSL    , OLSFT   , .......  , ....... , .......
+        )       , 
+    [_OSL]=LAYOUT36(
+        KC_GRV  , KC_7    , KC_8    , KC_9    , KC_0    , .......  , ....... , KC_PLUS  , KC_PLUS , KC_MINS  , KC_RBRC , XXXXXXX    , 
+        DK_OE   , HA(4)   , HS(5)   , HC(6)   , DK_AA   , .......  , ....... , KC_EQL   , KC_EQL  , TO(_NAV) , KC_QUOT , KC_ENT     , 
+        XXXXXXX , KC_1    , KC_2    , KC_3    , DK_AE   , .......  , ....... , KC_GRV   , KC_SCLN , KC_UNDS  , KC_BSLS , XXXXXXX    , 
+        ....... , ....... , ....... , _______ , OLSFT   , _______  , _______ , _______  , _______ , .......  , ....... , .......
+        )       , 
+    [_NAV]=LAYOUT36(
+        KC_Q    , KC_7    , KC_8    , KC_9    , KC_0    , .......  , ....... , TO(_SYS) , KC_PGUP , KC_RCTL  , KC_PGDN , _______    , 
+        TMUX    , HA(4)   , HS(5)   , HC(6)   , KC_P    , .......  , ....... , XXXXXXX  , KC_LEFT , KC_UP    , KC_RGHT , TO(_MOUSE) , 
+        OLGUI   , KC_1    , KC_2    , KC_3    , KC_ENT  , .......  , ....... , XXXXXXX  , KC_HOME , KC_DOWN  , KC_END  , TMUX       , 
+        ....... , ....... , ....... , _______ , TO(0)   , _______  , _______ , _______  , _______ , .......  , ....... , .......
+        )       , 
+    [_MOUSE]=LAYOUT36(
+        XXXXXXX , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX , .......  , ....... , TABP     , KC_WH_U , KC_BTN1  , KC_WH_D , TABN       , 
+        XXXXXXX , HA(NO)  , HS(NO)  , HC(NO)  , XXXXXXX , .......  , ....... , KC_BTN4  , KC_MS_L , KC_MS_U  , KC_MS_R , KC_BTN5    , 
+        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , .......  , ....... , XXXXXXX  , KC_WH_L , KC_MS_D  , KC_WH_R , XXXXXXX    , 
+        ....... , ....... , ....... , _______ , TO(0)   , _______  , _______ , _______  , _______ , .......  , ....... , .......
+        )       , 
+    [_SYS]=LAYOUT36(
+        XXXXXXX , KC_F7   , KC_F8   , KC_F9   , KC_F10  , .......  , ....... , KC_INS   , RGB_VAD , RGB_TOG  , RGB_VAI , XXXXXXX    , 
+        XXXXXXX , KC_F4   , KC_F5   , KC_F6   , KC_F11  , .......  , ....... , XXXXXXX  , HA(NO)  , HS(NO)   , HC(NO)  , XXXXXXX    , 
+        XXXXXXX , KC_F1   , KC_F2   , KC_F3   , KC_F12  , .......  , ....... , KC_PSCR  , XXXXXXX , XXXXXXX  , XXXXXXX , XXXXXXX    , 
+        ....... , ....... , ....... , _______ , TO(0)   , _______  , _______ , _______  , _______ , .......  , ....... , .......
+)
 };
+
 // clang-format on
 
 #ifdef OLED_ENABLE
@@ -140,17 +141,8 @@ bool oled_task_kb(void) {
 }
 #endif
 
-layer_state_t layer_state_set_user(layer_state_t state) {
+layer_state_t layer_state_set_kb(layer_state_t state) {
     uint8_t layer = get_highest_layer(state);
-
-    // Always return to the base layer
-    state = 1 << layer;
-
-    // if (layer == 0) {
-    //     del_oneshot_mods(MOD_MASK_SHIFT);
-    //     del_oneshot_locked_mods(MOD_MASK_SHIFT);
-    // }
-
     uint8_t val = rgblight_get_val();
     HSV     hsv = {0x4B, 0x1a, val};
 
@@ -172,44 +164,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-void keyboard_post_init_user(void) {
+void keyboard_post_init_kb(void) {
     rgblight_enable_noeeprom();
     HSV hsv = {0x4B, 0x1a, 0xff};
     rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
     rgblight_sethsv_noeeprom(hsv.h, hsv.s, hsv.v);
-}
-
-void oneshot_layer_changed_user(uint8_t layer) {
-    if (layer == _OSL) {
-        // entering the osl should always exit other layers
-        layer_move(_OSL);
-    }
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    uint8_t mod_state = get_mods();
-    switch (keycode) {
-        case KC_BSPC: {
-            // shift+backspace = delete
-            static bool delkey_registered;
-            if (record->event.pressed) {
-                if (mod_state & MOD_MASK_SHIFT) {
-                    del_mods(MOD_MASK_SHIFT);
-                    register_code(KC_DEL);
-                    delkey_registered = true;
-                    set_mods(mod_state);
-                    return false;
-                }
-            } else {
-                if (delkey_registered) {
-                    unregister_code(KC_DEL);
-                    delkey_registered = false;
-                    return false;
-                }
-            }
-            // Let QMK process the KC_BSPC keycode as usual outside of shift
-            return true;
-        }
-    }
-    return true;
 }
