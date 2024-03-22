@@ -1,25 +1,28 @@
 // vim: ft=c
 #include "keymap_us.h"
-COMB(combo_esc,       KC_ESC,     KC_R,     KC_S)
-COMB(combo_dash,      KC_MINUS,   KC_COMMA,  KC_DOT)
-COMB(combo_unds,      KC_UNDS,    KC_H,    KC_DOT)
+COMB(combo_esc,         KC_ESC,        KC_R,     KC_S)
+COMB(combo_dash,        KC_MINUS,      KC_COMMA, KC_DOT)
+COMB(combo_unds,        KC_UNDS,       KC_H,     KC_DOT)
 
-COMB(combo_pl,        KC_LPRN,    KC_F,     KC_P)
-COMB(combo_pr,        KC_RPRN,    KC_L,     KC_U)
+COMB(combo_pl,          KC_LPRN,       KC_F,     KC_P)
+COMB(combo_pr,          KC_RPRN,       KC_L,     KC_U)
 
-COMB(combo_sql,       KC_LBRC,    KC_W,     KC_F)
-COMB(combo_sqr,       KC_RBRC,    KC_U,     KC_Y)
+COMB(combo_sql,         KC_LBRC,       KC_W,     KC_F)
+COMB(combo_sqr,         KC_RBRC,       KC_U,     KC_Y)
 
-COMB(combo_curll,     KC_LCBR,    KC_W,     KC_P)
-COMB(combo_curlr,     KC_RCBR,    KC_L,     KC_Y)
+COMB(combo_curll,       KC_LCBR,       KC_W,     KC_P)
+COMB(combo_curlr,       KC_RCBR,       KC_L,     KC_Y)
 
-COMB(combo_caps_word, CW_TOGG,    KC_H,     KC_COMMA, KC_DOT)
-COMB(combo_scln, KC_SCLN,    KC_H, KC_E)
-COMB(combo_cln, KC_COLN, KC_E, KC_N)
-COMB(combo_quote, KC_DQUO, KC_I, KC_E)
+COMB(combo_caps_word,   CW_TOGG,       KC_H,     KC_COMMA, KC_DOT)
+COMB(combo_scln,        KC_SCLN,       KC_H,     KC_E)
+COMB(combo_cln,         KC_COLN,       KC_E,     KC_N)
+COMB(combo_quote,       KC_DQUO,       KC_I,     KC_E)
 
-// COMB(combo_bspc, KC_BSPC, KC_COMMA, KC_DOT)
-COMB(combo_tab, KC_TAB, KC_X, KC_C)
-COMB(combo_tab2, KC_TAB, KC_S, KC_T)
+// COMB(combo_bspc,     KC_BSPC,       KC_COMMA, KC_DOT)
+COMB(combo_tab,         KC_TAB,        KC_X,     KC_C)
+COMB(combo_tab2,        KC_TAB,        KC_S,     KC_T)
+
+COMB(combo_osm_shift_l, OSM(MOD_LSFT), KC_R,     KC_T)
+COMB(combo_osm_shift_r, OSM(MOD_RSFT), KC_N,     KC_I)
 
 
