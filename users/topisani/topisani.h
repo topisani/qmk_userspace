@@ -15,6 +15,13 @@ enum layers {
 enum custom_keycodes {
     PANIC = QK_USER,
     TMUX,
+    TKC_NAV,
+    OEM_START,
+    OEMLG = OEM_START, // Oneshot mods that exit the osl layer
+    OEMLC,
+    OEMRS,
+    OEMLA,
+    OEM_END = OEMLA
 };
 
 #define OLALT OSM(MOD_LALT)
@@ -29,7 +36,10 @@ enum custom_keycodes {
 #define HG(K) MT(MOD_LGUI, KC_##K)
 #define HA(K) MT(MOD_LALT, KC_##K)
 #define HS(K) MT(MOD_LSFT, KC_##K)
+#define HLS(K) MT(MOD_LSFT, KC_##K)
+#define HRS(K) MT(MOD_RSFT, KC_##K)
 #define HC(K) MT(MOD_LCTL, KC_##K)
+#define HRC(K) MT(MOD_RCTL, KC_##K)
 #define HN(K) LT(_NAV, KC_##K)
 #define TABN C(KC_PGDN)
 #define TABP C(KC_PGUP)

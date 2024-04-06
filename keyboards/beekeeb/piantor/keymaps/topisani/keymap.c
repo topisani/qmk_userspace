@@ -6,7 +6,7 @@
 #include "modifiers.h"
 #include "process_combo.h"
 #include "caps_word.h"
-#include "keycodes.h"
+#include "topisani.h"
 #include "g/keymap_combo.h"
 
 #include QMK_KEYBOARD_H
@@ -25,46 +25,48 @@ reg @ <percent>s<space>*=<space>*LAYOUT36<ret>j<a-i>is<space><ret>dXs.<backspace
                                        K31 , K32 ,  K33 , K34 , K35 , K36 \
     )
 
-// Q W F P B J L U Y < 
-// A R S T G M N E I O 
-// Z X C D V K H , . / 
+#define SPC LT(_NAV, KC_SPC)
+
+// Q W F P B J L U Y <
+// A R S T G M N E I O
+// Z X C D V K H , . /
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_COLEMAK_DH]=LAYOUT36(
-        KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , .......  , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_SCLN    , 
-        KC_A    , HA(R)   , HS(S)   , HC(T)   , KC_G    , .......  , ....... , KC_M     , HC(N)   , HS(E)    , HA(I)   , KC_O       , 
-        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , .......  , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
-        ....... , ....... , ....... , LGNAV   , KC_SPC  , MO(_NAV) , KC_BSPC , L_OSL    , OLSFT   , .......  , ....... , .......
-        )       , 
+        KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , .......  , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , HRC(QUOT)  ,
+        KC_A    , HA(R)   , HLS(S)  , HC(T)   , KC_G    , .......  , ....... , KC_M     , HC(N)   , HRS(E)   , HA(I)   , KC_O       ,
+        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , .......  , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    ,
+        ....... , ....... , ....... , _______ , KC_SPC  , OSL(_NAV), KC_BSPC , ORSFT    , _______ , .......  , ....... , .......
+    ),
     [_COMBOREF]=LAYOUT36(
-        KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , .......  , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_SCLN    , 
-        KC_A    , KC_R    , KC_S    , KC_T    , KC_G    , .......  , ....... , KC_M     , KC_N    , KC_E     , KC_I    , KC_O       , 
-        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , .......  , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    , 
-        ....... , ....... , ....... , LGNAV   , KC_SPC  , MO(_NAV) , KC_BSPC , L_OSL    , OLSFT   , .......  , ....... , .......
-        )       , 
-    [_OSL]=LAYOUT36(
-        KC_GRV  , KC_7    , KC_8    , KC_9    , KC_0    , .......  , ....... , KC_PLUS  , KC_PLUS , KC_MINS  , KC_RBRC , XXXXXXX    , 
-        DK_OE   , HA(4)   , HS(5)   , HC(6)   , DK_AA   , .......  , ....... , KC_EQL   , KC_EQL  , TO(_NAV) , KC_QUOT , KC_ENT     , 
-        XXXXXXX , KC_1    , KC_2    , KC_3    , DK_AE   , .......  , ....... , KC_GRV   , KC_SCLN , KC_UNDS  , KC_BSLS , XXXXXXX    , 
-        ....... , ....... , ....... , _______ , OLSFT   , _______  , _______ , _______  , _______ , .......  , ....... , .......
-        )       , 
+        KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , .......  , ....... , KC_J     , KC_L    , KC_U     , KC_Y    , KC_QUOTE   ,
+        KC_A    , KC_R    , KC_S    , KC_T    , KC_G    , .......  , ....... , KC_M     , KC_N    , KC_E     , KC_I    , KC_O       ,
+        KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , .......  , ....... , KC_K     , KC_H    , KC_COMM  , KC_DOT  , KC_SLSH    ,
+        ....... , ....... , ....... , _______ , KC_SPC  , OSL(_NAV), KC_BSPC , ORSFT    , _______ , .......  , ....... , .......
+    ),
+    // [_OSL]=LAYOUT36(
+    //     KC_GRV  , KC_7    , KC_8    , KC_9    , KC_0    , .......  , ....... , TO(_SYS) , KC_PGUP , KC_RCTL  , KC_PGDN , TO(_MOUSE) ,
+    //     DK_AA   , HA(4)   , HLS(5)  , HC(6)   , DK_AE   , .......  , ....... , KC_EQL   , KC_LEFT , KC_UP    , KC_RGHT , KC_ENT     ,
+    //     OEMLG   , KC_1    , KC_2    , KC_3    , DK_OE   , .......  , ....... , DK_AA    , KC_HOME , KC_DOWN  , KC_END  , KC_BSLS    ,
+    //     ....... , ....... , ....... , _______ , OLSFT   , _______  , _______ , _______  , _______ , .......  , ....... , .......
+    // ),
     [_NAV]=LAYOUT36(
-        KC_Q    , KC_7    , KC_8    , KC_9    , KC_0    , .......  , ....... , TO(_SYS) , KC_PGUP , KC_RCTL  , KC_PGDN , _______    , 
-        TMUX    , HA(4)   , HS(5)   , HC(6)   , KC_P    , .......  , ....... , XXXXXXX  , KC_LEFT , KC_UP    , KC_RGHT , TO(_MOUSE) , 
-        OLGUI   , KC_1    , KC_2    , KC_3    , KC_ENT  , .......  , ....... , XXXXXXX  , KC_HOME , KC_DOWN  , KC_END  , TMUX       , 
+        KC_GRV  , KC_7    , KC_8    , KC_9    , KC_0    , .......  , ....... , TO(_SYS) , KC_PGUP , KC_RCTL  , KC_PGDN , TO(_MOUSE) ,
+        TMUX    , HA(4)   , HLS(5)  , HC(6)   , DK_AE   , .......  , ....... , KC_EQL   , KC_LEFT , KC_UP    , KC_RGHT , KC_ENT     ,
+        OLGUI   , KC_1    , KC_2    , KC_3    , DK_OE   , .......  , ....... , DK_AA    , KC_HOME , KC_DOWN  , KC_END  , KC_BSLS    ,
         ....... , ....... , ....... , _______ , TO(0)   , _______  , _______ , _______  , _______ , .......  , ....... , .......
-        )       , 
+    ),
     [_MOUSE]=LAYOUT36(
-        XXXXXXX , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX , .......  , ....... , TABP     , KC_WH_U , KC_BTN1  , KC_WH_D , TABN       , 
-        XXXXXXX , HA(NO)  , HS(NO)  , HC(NO)  , XXXXXXX , .......  , ....... , KC_BTN4  , KC_MS_L , KC_MS_U  , KC_MS_R , KC_BTN5    , 
-        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , .......  , ....... , XXXXXXX  , KC_WH_L , KC_MS_D  , KC_WH_R , XXXXXXX    , 
+        XXXXXXX , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX , .......  , ....... , TABP     , KC_WH_U , KC_BTN1  , KC_WH_D , TABN       ,
+        XXXXXXX , HA(NO)  , HLS(NO) , HC(NO)  , XXXXXXX , .......  , ....... , KC_BTN4  , KC_MS_L , KC_MS_U  , KC_MS_R , KC_BTN5    ,
+        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , .......  , ....... , XXXXXXX  , KC_WH_L , KC_MS_D  , KC_WH_R , XXXXXXX    ,
         ....... , ....... , ....... , _______ , TO(0)   , _______  , _______ , _______  , _______ , .......  , ....... , .......
-        )       , 
+    ),
     [_SYS]=LAYOUT36(
-        XXXXXXX , KC_F7   , KC_F8   , KC_F9   , KC_F10  , .......  , ....... , KC_INS   , RGB_VAD , RGB_TOG  , RGB_VAI , XXXXXXX    , 
-        XXXXXXX , KC_F4   , KC_F5   , KC_F6   , KC_F11  , .......  , ....... , XXXXXXX  , HA(NO)  , HS(NO)   , HC(NO)  , XXXXXXX    , 
-        XXXXXXX , KC_F1   , KC_F2   , KC_F3   , KC_F12  , .......  , ....... , KC_PSCR  , XXXXXXX , XXXXXXX  , XXXXXXX , XXXXXXX    , 
+        XXXXXXX , KC_F7   , KC_F8   , KC_F9   , KC_F10  , .......  , ....... , KC_INS   , XXXXXXX , RGB_TOG  , XXXXXXX , XXXXXXX    ,
+        XXXXXXX , KC_F4   , KC_F5   , KC_F6   , KC_F11  , .......  , ....... , XXXXXXX  , HC(NO)  , HLS(NO)  , HA(NO)  , XXXXXXX    ,
+        XXXXXXX , KC_F1   , KC_F2   , KC_F3   , KC_F12  , .......  , ....... , KC_PSCR  , XXXXXXX , XXXXXXX  , XXXXXXX , XXXXXXX    ,
         ....... , ....... , ....... , _______ , TO(0)   , _______  , _______ , _______  , _______ , .......  , ....... , .......
-)
+    )
 };
 // clang-format on
 
