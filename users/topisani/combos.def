@@ -1,49 +1,68 @@
 // vim: ft=c
 #include "keymap_us.h"
-COMB(combo_esc,         KC_ESC,        KC_R,     KC_S)
-COMB(combo_dash,        KC_MINUS,      KC_COMMA, KC_DOT)
-COMB(combo_unds,        KC_UNDS,       KC_H,     KC_DOT)
 
-COMB(combo_pl,          KC_LPRN,       KC_F,     KC_P)
-COMB(combo_pr,          KC_RPRN,       KC_L,     KC_U)
+// Parens, brackets and braces on center combos top row
+COMB(combo_pl,          KC_LPRN,        KC_F,     KC_P)
+COMB(combo_pr,          KC_RPRN,        KC_L,     KC_U)
+COMB(combo_sql,         KC_LBRC,        KC_W,     KC_F)
+COMB(combo_sqr,         KC_RBRC,        KC_U,     KC_Y)
+COMB(combo_curll,       KC_LCBR,        KC_W,     KC_P)
+COMB(combo_curlr,       KC_RCBR,        KC_L,     KC_Y)
 
-COMB(combo_sql,         KC_LBRC,       KC_W,     KC_F)
-COMB(combo_sqr,         KC_RBRC,       KC_U,     KC_Y)
+// Right hand middle row
+COMB(combo_cln,         KC_COLN,        KC_E,     KC_N)
+COMB(combo_n_i,         KC_EQL,         KC_N,     KC_I)
+COMB(combo_enter,       KC_ENTER,       KC_I,     KC_E)
 
-COMB(combo_curll,       KC_LCBR,       KC_W,     KC_P)
-COMB(combo_curlr,       KC_RCBR,       KC_L,     KC_Y)
+// Right hand bottom row
+COMB(combo_dash,        KC_MINUS,       KC_COMMA, KC_DOT)
+COMB(combo_unds,        KC_UNDS,        KC_H,     KC_DOT)
+COMB(combo_plus,        KC_PLUS,        KC_H,     KC_COMMA)
+COMB(combo_caps_word,   CW_TOGG,        KC_H,     KC_COMMA, KC_DOT)
 
-COMB(combo_caps_word,   CW_TOGG,       KC_H,     KC_COMMA, KC_DOT)
-COMB(combo_scln,        KC_SCLN,       KC_H,     KC_E)
-COMB(combo_cln,         KC_COLN,       KC_E,     KC_N)
-COMB(combo_h_comma,         KC_PLUS,       KC_H,     KC_COMMA)
-COMB(combo_dquote,      KC_DQUO,       KC_I,     KC_E)
+// Right hand diagonal
+COMB(combo_n_u,         KC_GRV,         KC_N,     KC_U)
+COMB(combo_n_y,         KC_TILD,        KC_N,     KC_Y)
+COMB(combo_scln,        KC_SCLN,        KC_H,     KC_E)
 
-COMB(combo_x_c,      KC_BSLS,       KC_X,     KC_C)
-COMB(combo_c_d,      KC_PIPE,       KC_C,     KC_D)
+// Right hand inner thumb
+COMB(combo_rit0,        OSL(_SYS),      ORSFT,    KC_J)
+COMB(combo_rit1,        PANIC,          ORSFT,    KC_N)
+COMB(combo_rit2,        OSL(_NAV),      ORSFT,    KC_E)
+COMB(combo_rit3,        TO(_MOUSE),     ORSFT,    KC_I)
 
-// COMB(combo_bspc,     KC_BSPC,       KC_COMMA, KC_DOT)
-COMB(combo_tab,         KC_TAB,        KC_S,     KC_T)
+// Right hand outer thumb
+COMB(combo_rot1,        OLCTL,          KC_BSPC,  KC_N)
+COMB(combo_rot2,        ORSFT,          KC_BSPC,  KC_E)
+COMB(combo_rot3,        OLALT,          KC_BSPC,  KC_I)
 
-// COMB(combo_r_t, , KC_R,     KC_T)
-COMB(combo_n_i, KC_EQL, KC_N,     KC_I)
-COMB(combo_entr, KC_ENTER, ORSFT, KC_O)
-COMB(combo_entr_3fingers, KC_ENTER, KC_N,KC_E,KC_I)
-COMB(comgo_mouse, TO(_MOUSE), ORSFT, KC_QUOT)
+// Left hand middle row
+COMB(combo_esc,         KC_ESC,         KC_R,     KC_S)
+COMB(combo_tab,         KC_TAB,         KC_S,     KC_T)
 
-COMB(COMBO_NP1, KC_1, KC_SPC, KC_X)
-COMB(COMBO_NP2, KC_2, KC_SPC, KC_C)
-COMB(COMBO_NP3, KC_3, KC_SPC, KC_D)
-COMB(COMBO_NP4, KC_4, KC_SPC, KC_R)
-COMB(COMBO_NP5, KC_5, KC_SPC, KC_S)
-COMB(COMBO_NP6, KC_6, KC_SPC, KC_T)
-COMB(COMBO_NP7, KC_7, KC_SPC, KC_W)
-COMB(COMBO_NP8, KC_8, KC_SPC, KC_F)
-COMB(COMBO_NP9, KC_9, KC_SPC, KC_P)
-COMB(COMBO_NP0, KC_0, KC_SPC, KC_B)
+// Left hand bottom row
+COMB(combo_x_c,         KC_BSLS,        KC_X,     KC_C)
+COMB(combo_c_d,         KC_PIPE,        KC_C,     KC_D)
 
-COMB(combo_lt, KC_LT, ORSFT, KC_COMMA)
-COMB(combo_gt, KC_GT, ORSFT, KC_DOT)
-COMB(combo_n_u, KC_GRV, KC_N, KC_U)
-COMB(combo_n_y, KC_TILD, KC_N, KC_Y)
+COMB(combo_w_t,         DK_OE, 			KC_W,     KC_T)
+COMB(combo_f_t,         DK_AE, 			KC_F,     KC_T)
+COMB(combo_r_t,         DK_AA, 			KC_R,     KC_T)
 
+// COMB(combo_r_t,      ,               KC_R,     KC_T)
+
+// Left / Right panic using innermost/outermost centerrow 
+// COMB(combo_rit4,        KC_ENTER,       ORSFT,    KC_O)
+COMB(combo_panic_l,     PANIC,          KC_A,     KC_G)
+COMB(combo_panic_r,     PANIC,          KC_M,     KC_O)
+
+// Number combos left
+COMB(COMBO_NP1,         KC_1,           KC_SPC,   KC_X)
+COMB(COMBO_NP2,         KC_2,           KC_SPC,   KC_C)
+COMB(COMBO_NP3,         KC_3,           KC_SPC,   KC_D)
+COMB(COMBO_NP4,         KC_4,           KC_SPC,   KC_R)
+COMB(COMBO_NP5,         KC_5,           KC_SPC,   KC_S)
+COMB(COMBO_NP6,         KC_6,           KC_SPC,   KC_T)
+COMB(COMBO_NP7,         KC_7,           KC_SPC,   KC_W)
+COMB(COMBO_NP8,         KC_8,           KC_SPC,   KC_F)
+COMB(COMBO_NP9,         KC_9,           KC_SPC,   KC_P)
+COMB(COMBO_NP0,         KC_0,           KC_SPC,   KC_B)

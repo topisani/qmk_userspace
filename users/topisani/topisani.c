@@ -182,6 +182,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!num_mode_process(keycode, record)) return false;
     if (!tmux_prefix_process(keycode, record)) return false;
     switch (keycode) {
+        case OLGUI: {
+            // clear oneshot layer when gui mod is pressed
+            clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+        } break;
+        case PANIC: {
+            clear_oneshot_mods();
+            clear_mods();
+            if (get_oneshot_layer() != 0) {
+                clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+            }
+            layer_move(0);
+            caps_word_off();
+            return false;
+        }
         case KC_BSPC: {
             // shift+backspace = delete
             static bool delkey_registered;
@@ -211,7 +225,7 @@ bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
         // Keycodes that continue Caps Word, with shift applied.
         case KC_A ... KC_Z:
-            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            add_weak_mods(MOD_BIT(KC_LSFT)); // Apply shift to next key.
             return true;
 
         // Keycodes that continue Caps Word, without shifting.
@@ -223,6 +237,31 @@ bool caps_word_press_user(uint16_t keycode) {
 
         case KC_MINS:
         default:
-            return false;  // Deactivate Caps Word.
+            return false; // Deactivate Caps Word.
+    }
+}
+bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case DK_AA:
+        case DK_AE:
+        case DK_OE:
+        case OLALT:
+        case HRC(Y):
+        case HA(S):
+        case HLS(T):
+        case HC(H):
+        case HC(N):
+        case HRS(E):
+        case HA(A):
+        case HRC(QUOT):
+        case HA(R):
+        case HLS(S):
+        case HC(T):
+        case HA(I):
+
+        case KC_DOT:
+            return true;
+        default:
+            return false;
     }
 }
