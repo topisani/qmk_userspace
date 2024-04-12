@@ -4,12 +4,14 @@
 #include "action_tapping.h"
 #include "action_util.h"
 #include "color.h"
+#include "debug.h"
 #include "keycodes.h"
 #include "keymap_us.h"
 #include "modifiers.h"
 #include "process_combo.h"
 #include "caps_word.h"
 #include "keycodes.h"
+#include "quantum.h"
 #include "topisani.h"
 #include "send_string.h"
 
@@ -43,6 +45,8 @@ void keyboard_post_init_user(void) {
     HSV hsv = {0x4B, 0x1a, 0xff};
     rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
     rgblight_sethsv_noeeprom(hsv.h, hsv.s, hsv.v);
+    // debug_enable=true;
+    // debug_keyboard=true;
 }
 #else
 static layer_state_t layer_state_set_user_rgb(layer_state_t state) {
@@ -177,15 +181,22 @@ bool num_mode_process(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case OLGUI: {
+            // clear oneshot layer when gui mod is pressed
+            if (record->event.pressed && get_oneshot_layer() != 0) {
+                clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+            }
+        } break;
+    }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     uint8_t mod_state = get_mods();
     if (!num_mode_process(keycode, record)) return false;
     if (!tmux_prefix_process(keycode, record)) return false;
     switch (keycode) {
-        case OLGUI: {
-            // clear oneshot layer when gui mod is pressed
-            clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
-        } break;
         case PANIC: {
             clear_oneshot_mods();
             clear_mods();
@@ -241,25 +252,19 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
+    if (IS_QK_MOD_TAP(keycode) ) {
+        keycode = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
+    }
     switch(keycode) {
         case DK_AA:
         case DK_AE:
         case DK_OE:
-        case OLALT:
-        case HRC(Y):
-        case HA(S):
-        case HLS(T):
-        case HC(H):
-        case HC(N):
-        case HRS(E):
-        case HA(A):
-        case HRC(QUOT):
-        case HA(R):
-        case HLS(S):
-        case HC(T):
-        case HA(I):
-
+        case KC_A ... KC_Z:
+        case KC_QUOTE:
         case KC_DOT:
+        case KC_COMMA:
+        case KC_SLASH:
+        case KC_1... KC_0:
             return true;
         default:
             return false;

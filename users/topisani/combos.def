@@ -10,8 +10,8 @@ COMB(combo_curll,       KC_LCBR,        KC_W,     KC_P)
 COMB(combo_curlr,       KC_RCBR,        KC_L,     KC_Y)
 
 // Right hand middle row
-COMB(combo_cln,         KC_COLN,        KC_E,     KC_N)
-COMB(combo_n_i,         KC_EQL,         KC_N,     KC_I)
+// COMB(combo_cln,         KC_COLN,        KC_E,     KC_N)
+COMB(combo_n_i,         KC_COLN,        KC_N,     KC_I)
 COMB(combo_enter,       KC_ENTER,       KC_I,     KC_E)
 
 // Right hand bottom row
@@ -24,17 +24,20 @@ COMB(combo_caps_word,   CW_TOGG,        KC_H,     KC_COMMA, KC_DOT)
 COMB(combo_n_u,         KC_GRV,         KC_N,     KC_U)
 COMB(combo_n_y,         KC_TILD,        KC_N,     KC_Y)
 COMB(combo_scln,        KC_SCLN,        KC_H,     KC_E)
+COMB(combo_cln,         KC_EQUAL,       KC_H,     KC_I)
 
-// Right hand inner thumb
-COMB(combo_rit0,        OSL(_SYS),      ORSFT,    KC_J)
-COMB(combo_rit1,        PANIC,          ORSFT,    KC_N)
-COMB(combo_rit2,        OSL(_NAV),      ORSFT,    KC_E)
+ // Right hand inner thumb
+COMB(combo_rit0,        OSL(_SYS),      ORSFT,    KC_N)
+COMB(combo_rit2,        TO(_NAV),      ORSFT,    KC_E)
 COMB(combo_rit3,        TO(_MOUSE),     ORSFT,    KC_I)
 
 // Right hand outer thumb
 COMB(combo_rot1,        OLCTL,          KC_BSPC,  KC_N)
 COMB(combo_rot2,        ORSFT,          KC_BSPC,  KC_E)
 COMB(combo_rot3,        OLALT,          KC_BSPC,  KC_I)
+
+// Right hand vertical
+COMB(combo_l_n,         KC_DQT,         KC_L,     KC_N)
 
 // Left hand middle row
 COMB(combo_esc,         KC_ESC,         KC_R,     KC_S)
@@ -48,10 +51,12 @@ COMB(combo_w_t,         DK_OE, 			KC_W,     KC_T)
 COMB(combo_f_t,         DK_AE, 			KC_F,     KC_T)
 COMB(combo_r_t,         DK_AA, 			KC_R,     KC_T)
 
+// Left hand vertical
+COMB(combo_p_t,         KC_QUOT,         KC_P,     KC_T)
+
 // COMB(combo_r_t,      ,               KC_R,     KC_T)
 
 // Left / Right panic using innermost/outermost centerrow 
-// COMB(combo_rit4,        KC_ENTER,       ORSFT,    KC_O)
 COMB(combo_panic_l,     PANIC,          KC_A,     KC_G)
 COMB(combo_panic_r,     PANIC,          KC_M,     KC_O)
 

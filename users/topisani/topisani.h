@@ -5,8 +5,8 @@
 enum layers {
     _COLEMAK_DH,
     _COMBOREF,
-    _QWERTY,
     _APT,
+    _CANARY,
     _OSL,
     _MOUSE,
     _SYS,
