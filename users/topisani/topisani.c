@@ -59,6 +59,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     // Always return to the base layer
     state = 1 << layer;
+    
     state = layer_state_set_user_rgb(state);
     return state;
 }
@@ -191,6 +192,20 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
         } break;
     }
 }
+
+const key_override_t key_override_par =
+    ko_make_basic(MOD_MASK_SHIFT, KC_LPRN, KC_RPRN);  // Shift . is ?
+const key_override_t key_override_brc =
+    ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC); // Shift , is !
+const key_override_t key_override_cbr =
+    ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR);  // Shift - is =
+
+const key_override_t** key_overrides = (const key_override_t*[]){
+    &key_override_par,
+    &key_override_brc,
+    &key_override_cbr,
+    NULL
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     uint8_t mod_state = get_mods();

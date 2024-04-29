@@ -12,7 +12,23 @@ layers:
     - $$mdi:keyboard-space$$
     - { t: NAV, h: 1-shot }
     - $$mdi:backspace-outline$$
+    - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
+  BIRD:
+    - [Q, C, L, F, B, J, L, O, U, {t: "'", h: Comp} ]
+    - [R, {h: Alt, t: S}, {h: Shift, t: N}, {h: Ctrl, t: T}, P, K, {h: Ctrl, t: H}, {h: Shift, t: E}, {h: Alt, t: I}, A]
+    - [X, W, M, G, V, J, D, ",", ., /]
+    - $$mdi:keyboard-space$$
     - { t: NAV, h: 1-shot }
+    - $$mdi:backspace-outline$$
+    - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
+  # APTMAK:
+  #   - [null, W, F, P, B, Q, L, U, Y, null ]
+  #   - [R, {h: Alt, t: S}, {h: Shift, t: T}, {h: Ctrl, t: H}, K, J, {h: Ctrl, t: N}, {h: Shift, t: A}, {h: Alt, t: I}, O]
+  #   - [Z, C, G, D, V, X, M, ",", ., /]
+  #   - $$mdi:keyboard-space$$
+  #   - { t: NAV, h: 1-shot }
+  #   - $$mdi:backspace-outline$$
+  #   - E
   NAV:
     - [$$mdi:backspace-reverse-outline$$, 7, 8, 9, 0, null, PgUp, Comp, PgDown, null]
     - [TMUX, {h: Alt, t: 4}, {h: Shift, t: 5}, {h: Ctrl, t: 6}, null, null, $$mdi:chevron-left$$, $$mdi:chevron-up$$, $$mdi:chevron-right$$, null]
@@ -28,7 +44,15 @@ layers:
     - DEF
     - { t: NAV, h: 1-shot }
     - $$mdi:backspace-outline$$
+    - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
+  MOUSE:
+    - [null, BTN3, BTN2, BTN1, null, TABP, WhUp, BTN1, WhDn, TABN ]
+    - [null, Alt, Shift, Ctrl, null, BTN4, MsLeft, MsUp, MsRight, BTN5]
+    - [null, null, null, null, null, null, WhLeft, MsDown, WhRight, null]
+    - { t: $$mdi:keyboard-space$$ }
     - { t: NAV, h: 1-shot }
+    - $$mdi:backspace-outline$$
+    - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
   COMBOS:
     - [{t: 0, type: trans}, {t: 1, type: trans}, {t: 2, type: trans}, {t: 3, type: trans}, {t: 4, type: trans}, {t: 5, type: trans}, {t: 6, type: trans}, {t: 7, type: trans}, {t: 8, type: trans}, {t: 9, type: trans}]
     - [{t: 10, type: trans}, {t: 11, type: trans}, {t: 12, type: trans}, {t: 13, type: trans}, {t: 14, type: trans}, {t: 15, type: trans}, {t: 16, type: trans}, {t: 17, type: trans}, {t: 18, type: trans}, {t: 19, type: trans}]
@@ -68,6 +92,9 @@ combos:
   - {k: Panic,        p: [15,19],    l: [COMBOS], w: 40, a: top, o: 1.6 } # KC_M,     KC_O)
   - {k: "'",          p: [3,13],     l: [NAV]} # KC_M,     KC_O)
   - {k: '"',          p: [6,16],     l: [NAV]} # KC_M,     KC_O)
+  - {k: Ø,            p: [2,12],     l: [NAV]} # KC_W,     KC_T)
+  - {k: Æ,            p: [8,18],     l: [NAV]} # KC_F,     KC_T)
+  - {k: Å,            p: [7,17],     l: [NAV]} # KC_R,     KC_T)
   - {k: ' ',          p: [16,17],    l: [DEF], type: ghost} # KC_E,     KC_N)
 
 

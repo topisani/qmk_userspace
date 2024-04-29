@@ -38,6 +38,8 @@ COMB(combo_rot3,        OLALT,          KC_BSPC,  KC_I)
 
 // Right hand vertical
 COMB(combo_l_n,         KC_DQT,         KC_L,     KC_N)
+COMB(combo_u_e,         DK_AA,          KC_U,     KC_E)
+COMB(combo_y_i,         DK_AE,          KC_Y,     KC_I)
 
 // Left hand middle row
 COMB(combo_esc,         KC_ESC,         KC_R,     KC_S)
@@ -53,6 +55,7 @@ COMB(combo_r_t,         DK_AA, 			KC_R,     KC_T)
 
 // Left hand vertical
 COMB(combo_p_t,         KC_QUOT,         KC_P,     KC_T)
+COMB(combo_f_s,         DK_OE,           KC_F,     KC_S)
 
 // COMB(combo_r_t,      ,               KC_R,     KC_T)
 

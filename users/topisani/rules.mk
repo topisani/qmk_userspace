@@ -4,8 +4,9 @@ MOUSEKEY_ENABLE        = yes
 CAPS_WORD_ENABLE       = yes
 LTO_ENABLE             = yes
 TAP_DANCE_ENABLE       = no
-AUTO_SHIFT_ENABLE      = yes
+AUTO_SHIFT_ENABLE      = no
 REPEAT_KEY_ENABLE      = yes
+KEY_OVERRIDE_ENABLE    = yes
 
 # Disable unused features
 MAGIC_ENABLE	       = no

@@ -6,7 +6,9 @@ enum layers {
     _COLEMAK_DH,
     _COMBOREF,
     _APT,
+    _APTMAK,
     _CANARY,
+    _BIRD,
     _OSL,
     _MOUSE,
     _SYS,
@@ -23,6 +25,10 @@ enum custom_keycodes {
     OEMRS,
     OEMLA,
     OEM_END = OEMLA,
+
+    BRACKETS,
+    BRACES,
+    PARENS,
 };
 
 #define OLALT OSM(MOD_LALT)
