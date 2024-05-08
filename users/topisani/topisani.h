@@ -3,12 +3,12 @@
 #include <quantum/keycodes.h>
 
 enum layers {
-    _COLEMAK_DH,
+    _BIRD,
     _COMBOREF,
     _APT,
     _APTMAK,
     _CANARY,
-    _BIRD,
+    _COLEMAK_DH,
     _OSL,
     _MOUSE,
     _SYS,

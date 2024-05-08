@@ -2,12 +2,15 @@
 #include "keymap_us.h"
 
 // Parens, brackets and braces on center combos top row
-COMB(combo_pl,          KC_LPRN,        KC_F,     KC_P)
-COMB(combo_pr,          KC_RPRN,        KC_L,     KC_U)
-COMB(combo_sql,         KC_LBRC,        KC_W,     KC_F)
-COMB(combo_sqr,         KC_RBRC,        KC_U,     KC_Y)
-COMB(combo_curll,       KC_LCBR,        KC_W,     KC_P)
-COMB(combo_curlr,       KC_RCBR,        KC_L,     KC_Y)
+COMB(combo_pl,          KC_LPRN,        KC_P, KC_B)
+COMB(combo_pr,          KC_RPRN,        KC_J,     KC_L)
+COMB(combo_sql,         KC_LBRC,        KC_T,     KC_G)
+COMB(combo_sqr,         KC_RBRC,        KC_M,     KC_N)
+// COMB(combo_curll,       KC_LCBR,        KC_W,     KC_P)
+// COMB(combo_curlr,       KC_RCBR,        KC_L,     KC_Y)
+
+COMB(combo_v,           KC_V,           KC_W,     KC_F)
+COMB(combo_q,           KC_Q,           KC_F,     KC_P)
 
 // Right hand middle row
 // COMB(combo_cln,         KC_COLN,        KC_E,     KC_N)

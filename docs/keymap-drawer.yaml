@@ -5,7 +5,7 @@ layout:
   #cols_thumbs_notation: 3v33^33+2> 2+333^33v
   qmk_info_json: piantor-2thumb.json
 layers:
-  DEF:
+  COLEMAK:
     - [Q, W, F, P, B, J, L, U, Y, {t: "'", h: Comp} ]
     - [A, {h: Alt, t: R}, {h: Shift, t: S}, {h: Ctrl, t: T}, G, M, {h: Ctrl, t: N}, {h: Shift, t: E}, {h: Alt, t: I}, O]
     - [Z, X, C, D, V, K, H, ",", ., /]
@@ -14,7 +14,7 @@ layers:
     - $$mdi:backspace-outline$$
     - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
   BIRD:
-    - [Q, C, L, F, B, J, L, O, U, {t: "'", h: Comp} ]
+    - ['', C, L, F, B, Z, L, O, U, '']
     - [R, {h: Alt, t: S}, {h: Shift, t: N}, {h: Ctrl, t: T}, P, K, {h: Ctrl, t: H}, {h: Shift, t: E}, {h: Alt, t: I}, A]
     - [X, W, M, G, V, J, D, ",", ., /]
     - $$mdi:keyboard-space$$
@@ -62,17 +62,21 @@ layers:
     - {t: 32, type: trans}
     - {t: 33, type: trans}
 combos:
-  - {k: (,            p: [2,3],      l: [DEF] } # KC_F,     KC_P)
-  - {k: ),            p: [6,7],      l: [DEF] } # KC_L,     KC_U)
-  - {k: '[',          p: [1,2],      l: [DEF] } # KC_W,     KC_F)
-  - {k: ']',          p: [7,8],      l: [DEF] } # KC_U,     KC_Y)
-  - {k: '{',          p: [1,3],      l: [DEF], a: top, o: 0.4} # KC_W,     KC_P)
-  - {k: '}',          p: [6,8],      l: [DEF], a: top, o: 0.4} # KC_L,     KC_Y)
-  - {k: ':',          p: [16,18],    l: [DEF], a: top } # KC_E,     KC_N)
-  - {k: $$mdi:keyboard-return$$,        p: [17,18],    l: [DEF] } # KC_I,     KC_E)
-  - {k: '-',          p: [27,28],    l: [DEF] } # KC_COMMA, KC_DOT)
-  - {k: '_',          p: [26,28],    l: [DEF], a: bottom, o: 0.2 } # KC_H,     KC_DOT)
-  - {k: '+',          p: [26,27],    l: [DEF] } # KC_H,     KC_COMMA)
+  # - {k: (,            p: [2,3],      l: [BIRD] } # KC_F,     KC_P)
+  # - {k: ),            p: [6,7],      l: [BIRD] } # KC_L,     KC_U)
+  # - {k: '[',          p: [1,2],      l: [BIRD] } # KC_W,     KC_F)
+  # - {k: ']',          p: [7,8],      l: [BIRD] } # KC_U,     KC_Y)
+  # - {k: '{',          p: [1,3],      l: [BIRD], a: top, o: 0.4} # KC_W,     KC_P)
+  # - {k: '}',          p: [6,8],      l: [BIRD], a: top, o: 0.4} # KC_L,     KC_Y)
+  - {k: (,            p: [3,4],      l: [BIRD] } # KC_F,     KC_P)
+  - {k: ),            p: [5,6],      l: [BIRD] } # KC_L,     KC_U)
+  - {k: '[',          p: [13,14],      l: [BIRD] } # KC_W,     KC_F)
+  - {k: ']',          p: [15,16],      l: [BIRD] } # KC_U,     KC_Y)
+  - {k: ':',          p: [16,18],    l: [BIRD], a: top } # KC_E,     KC_N)
+  - {k: $$mdi:keyboard-return$$,        p: [17,18],    l: [BIRD] } # KC_I,     KC_E)
+  - {k: '-',          p: [27,28],    l: [BIRD] } # KC_COMMA, KC_DOT)
+  - {k: '_',          p: [26,28],    l: [BIRD], a: bottom, o: 0.2 } # KC_H,     KC_DOT)
+  - {k: '+',          p: [26,27],    l: [BIRD] } # KC_H,     KC_COMMA)
   - {k: 'Caps Word',  p: [26,27,28], l: [COMBOS], w: 40, a: bottom, o: 0.2 } # KC_H,     KC_COMMA, KC_DOT)
   - {k: '~',          p: [16,8],    l:  [COMBOS], s: 0.2, d: true } # KC_N,     KC_Y)
   - {k: '`',          p: [16,7],     l: [COMBOS], d: true } # KC_N,     KC_U)
@@ -81,10 +85,10 @@ combos:
   - {k: SYS,          p: [33,16],    l: [SYS], a: right } # ORSFT,    KC_N)
   - {k: NAV,          p: [33,17],    l: [SYS], a: right } # ORSFT,    KC_E)
   - {k: MOUSE,        p: [33,18],    l: [SYS], a: right,  w: 50} # ORSFT,    KC_I)
-  - {k: 'ESC',        p: [11,12],    l: [DEF] } # KC_R,     KC_S)
-  - {k: $$mdi:keyboard-tab$$,          p: [12,13],    l: [DEF] } # KC_S,     KC_T)
-  - {k: '\',          p: [21,22],    l: [DEF] } # KC_X,     KC_C)
-  - {k: '|',          p: [22,23],    l: [DEF] } # KC_C,     KC_D)
+  - {k: 'ESC',        p: [11,12],    l: [BIRD] } # KC_R,     KC_S)
+  - {k: $$mdi:keyboard-tab$$,          p: [12,13],    l: [BIRD] } # KC_S,     KC_T)
+  - {k: '\',          p: [21,22],    l: [BIRD] } # KC_X,     KC_C)
+  - {k: '|',          p: [22,23],    l: [BIRD] } # KC_C,     KC_D)
   - {k: Ø,            p: [1,13],     l: [COMBOS], d: true, s: -0.2} # KC_W,     KC_T)
   - {k: Æ,            p: [2,13],     l: [COMBOS],  d: true} # KC_F,     KC_T)
   - {k: Å,            p: [11,13],    l: [COMBOS], a: bottom } # KC_R,     KC_T)
@@ -95,22 +99,24 @@ combos:
   - {k: Ø,            p: [2,12],     l: [NAV]} # KC_W,     KC_T)
   - {k: Æ,            p: [8,18],     l: [NAV]} # KC_F,     KC_T)
   - {k: Å,            p: [7,17],     l: [NAV]} # KC_R,     KC_T)
-  - {k: ' ',          p: [16,17],    l: [DEF], type: ghost} # KC_E,     KC_N)
+  - {k: V,            p: [1,2],      l: [BIRD]} # KC_R,     KC_T)
+  - {k: Q,            p: [2,3],      l: [BIRD]} # KC_R,     KC_T)
+  - {k: ' ',          p: [16,17],    l: [BIRD], type: ghost} # KC_E,     KC_N)
 
 
-  # - {k: OLCTL,      p: [], l: ["DEF"] } # KC_BSPC,  KC_N)
-  # - {k: ORSFT,      p: [], l: ["DEF"] } # KC_BSPC,  KC_E)
-  # - {k: OLALT,      p: [], l: ["DEF"] } # KC_BSPC,  KC_I)
-  # - {k: 1,          p: [], l: ["DEF"] } # KC_SPC,   KC_X)
-  # - {k: 2,          p: [], l: ["DEF"] } # KC_SPC,   KC_C)
-  # - {k: 3,          p: [], l: ["DEF"] } # KC_SPC,   KC_D)
-  # - {k: 4,          p: [], l: ["DEF"] } # KC_SPC,   KC_R)
-  # - {k: 5,          p: [], l: ["DEF"] } # KC_SPC,   KC_S)
-  # - {k: 6,          p: [], l: ["DEF"] } # KC_SPC,   KC_T)
-  # - {k: 7,          p: [], l: ["DEF"] } # KC_SPC,   KC_W)
-  # - {k: 8,          p: [], l: ["DEF"] } # KC_SPC,   KC_F)
-  # - {k: 9,          p: [], l: ["DEF"] } # KC_SPC,   KC_P)
-  # - {k: 0,          p: [], l: ["DEF"] } # KC_SPC,   KC_B)
+  # - {k: OLCTL,      p: [], l: ["BIRD"] } # KC_BSPC,  KC_N)
+  # - {k: ORSFT,      p: [], l: ["BIRD"] } # KC_BSPC,  KC_E)
+  # - {k: OLALT,      p: [], l: ["BIRD"] } # KC_BSPC,  KC_I)
+  # - {k: 1,          p: [], l: ["BIRD"] } # KC_SPC,   KC_X)
+  # - {k: 2,          p: [], l: ["BIRD"] } # KC_SPC,   KC_C)
+  # - {k: 3,          p: [], l: ["BIRD"] } # KC_SPC,   KC_D)
+  # - {k: 4,          p: [], l: ["BIRD"] } # KC_SPC,   KC_R)
+  # - {k: 5,          p: [], l: ["BIRD"] } # KC_SPC,   KC_S)
+  # - {k: 6,          p: [], l: ["BIRD"] } # KC_SPC,   KC_T)
+  # - {k: 7,          p: [], l: ["BIRD"] } # KC_SPC,   KC_W)
+  # - {k: 8,          p: [], l: ["BIRD"] } # KC_SPC,   KC_F)
+  # - {k: 9,          p: [], l: ["BIRD"] } # KC_SPC,   KC_P)
+  # - {k: 0,          p: [], l: ["BIRD"] } # KC_SPC,   KC_B)
 
 draw_config:
     glyph_urls:
