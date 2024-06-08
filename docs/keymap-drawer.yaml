@@ -5,22 +5,22 @@ layout:
   #cols_thumbs_notation: 3v33^33+2> 2+333^33v
   qmk_info_json: piantor-2thumb.json
 layers:
-  COLEMAK:
-    - [Q, W, F, P, B, J, L, U, Y, {t: "'", h: Comp} ]
-    - [A, {h: Alt, t: R}, {h: Shift, t: S}, {h: Ctrl, t: T}, G, M, {h: Ctrl, t: N}, {h: Shift, t: E}, {h: Alt, t: I}, O]
-    - [Z, X, C, D, V, K, H, ",", ., /]
-    - $$mdi:keyboard-space$$
-    - { t: NAV, h: 1-shot }
-    - $$mdi:backspace-outline$$
-    - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
+  # COLEMAK:
+  #   - [Q, W, F, P, B, J, L, U, Y, {t: "'", h: Comp} ]
+  #   - [A, {h: Alt, t: R}, {h: Shift, t: S}, {h: Ctrl, t: T}, G, M, {h: Ctrl, t: N}, {h: Shift, t: E}, {h: Alt, t: I}, O]
+  #   - [Z, X, C, D, V, K, H, ",", ., /]
+  #   - $$mdi:keyboard-space$$
+  #   - { t: NAV, h: 1-shot }
+  #   - $$mdi:backspace-outline$$
+  #   - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
   BIRD:
-    - ['', C, L, F, B, Z, L, O, U, '']
+    - ['', C, L, F, B, J, L, O, U, '']
     - [R, {h: Alt, t: S}, {h: Shift, t: N}, {h: Ctrl, t: T}, P, K, {h: Ctrl, t: H}, {h: Shift, t: E}, {h: Alt, t: I}, A]
-    - [X, W, M, G, V, J, D, ",", ., /]
+    - [X, W, M, G, V, '', D, ",", ., /]
     - $$mdi:keyboard-space$$
     - { t: NAV, h: 1-shot }
-    - $$mdi:backspace-outline$$
     - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
+    - $$mdi:backspace-outline$$
   # APTMAK:
   #   - [null, W, F, P, B, Q, L, U, Y, null ]
   #   - [R, {h: Alt, t: S}, {h: Shift, t: T}, {h: Ctrl, t: H}, K, J, {h: Ctrl, t: N}, {h: Shift, t: A}, {h: Alt, t: I}, O]
@@ -30,29 +30,29 @@ layers:
   #   - $$mdi:backspace-outline$$
   #   - E
   NAV:
-    - [$$mdi:backspace-reverse-outline$$, 7, 8, 9, 0, null, PgUp, Comp, PgDown, null]
-    - [TMUX, {h: Alt, t: 4}, {h: Shift, t: 5}, {h: Ctrl, t: 6}, null, null, $$mdi:chevron-left$$, $$mdi:chevron-up$$, $$mdi:chevron-right$$, null]
-    - [Gui, 1, 2, 3, null, null, Home, $$mdi:chevron-down$$, End, null]
+    - [$$mdi:backspace-reverse-outline$$, 7, 8, 9, 0, Æ, PgUp, Comp, PgDown, null]
+    - [TMUX, {h: Alt, t: 4}, {h: Shift, t: 5}, {h: Ctrl, t: 6}, null, Ø, $$mdi:chevron-left$$, $$mdi:chevron-up$$, $$mdi:chevron-right$$, null]
+    - [Gui, 1, 2, 3, null, Å, Home, $$mdi:chevron-down$$, End, null]
     - DEF
+    - {}
     - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
     - $$mdi:backspace-outline$$
-    - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
   SYS:
     - [null, F7, F8, F9, F0,   Insrt, null, null, null, null]
     - [null, F4, F5, F6, null, null, Ctrl, Shift, Alt, null]
     - [null, F1, F2, F3, null, PrtSc, null, null, null, null]
     - DEF
     - { t: NAV, h: 1-shot }
-    - $$mdi:backspace-outline$$
     - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
+    - $$mdi:backspace-outline$$
   MOUSE:
     - [null, BTN3, BTN2, BTN1, null, TABP, WhUp, BTN1, WhDn, TABN ]
     - [null, Alt, Shift, Ctrl, null, BTN4, MsLeft, MsUp, MsRight, BTN5]
     - [null, null, null, null, null, null, WhLeft, MsDown, WhRight, null]
     - { t: $$mdi:keyboard-space$$ }
     - { t: NAV, h: 1-shot }
-    - $$mdi:backspace-outline$$
     - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
+    - $$mdi:backspace-outline$$
   COMBOS:
     - [{t: 0, type: trans}, {t: 1, type: trans}, {t: 2, type: trans}, {t: 3, type: trans}, {t: 4, type: trans}, {t: 5, type: trans}, {t: 6, type: trans}, {t: 7, type: trans}, {t: 8, type: trans}, {t: 9, type: trans}]
     - [{t: 10, type: trans}, {t: 11, type: trans}, {t: 12, type: trans}, {t: 13, type: trans}, {t: 14, type: trans}, {t: 15, type: trans}, {t: 16, type: trans}, {t: 17, type: trans}, {t: 18, type: trans}, {t: 19, type: trans}]
@@ -64,8 +64,8 @@ layers:
 combos:
   # - {k: (,            p: [2,3],      l: [BIRD] } # KC_F,     KC_P)
   # - {k: ),            p: [6,7],      l: [BIRD] } # KC_L,     KC_U)
-  # - {k: '[',          p: [1,2],      l: [BIRD] } # KC_W,     KC_F)
-  # - {k: ']',          p: [7,8],      l: [BIRD] } # KC_U,     KC_Y)
+  - {k: '[',          p: [6,7],      l: [BIRD] } # KC_W,     KC_F)
+  - {k: ']',          p: [7,8],      l: [BIRD] } # KC_U,     KC_Y)
   # - {k: '{',          p: [1,3],      l: [BIRD], a: top, o: 0.4} # KC_W,     KC_P)
   # - {k: '}',          p: [6,8],      l: [BIRD], a: top, o: 0.4} # KC_L,     KC_Y)
   - {k: (,            p: [3,4],      l: [BIRD] } # KC_F,     KC_P)
@@ -82,26 +82,26 @@ combos:
   - {k: '`',          p: [16,7],     l: [COMBOS], d: true } # KC_N,     KC_U)
   - {k: ';',          p: [26,17],    l: [COMBOS], d: true } # KC_H,     KC_E)
   - {k: '=',          p: [26,18],    l: [COMBOS], d: true, s: 0.2 } # KC_N,     KC_I)
-  - {k: SYS,          p: [33,16],    l: [SYS], a: right } # ORSFT,    KC_N)
-  - {k: NAV,          p: [33,17],    l: [SYS], a: right } # ORSFT,    KC_E)
-  - {k: MOUSE,        p: [33,18],    l: [SYS], a: right,  w: 50} # ORSFT,    KC_I)
+  - {k: SYS,          p: [32,16],    l: [SYS], a: right } # ORSFT,    KC_N)
+  - {k: NAV,          p: [32,17],    l: [SYS], a: right } # ORSFT,    KC_E)
+  - {k: MOUSE,        p: [32,18],    l: [SYS], a: right,  w: 50} # ORSFT,    KC_I)
   - {k: 'ESC',        p: [11,12],    l: [BIRD] } # KC_R,     KC_S)
   - {k: $$mdi:keyboard-tab$$,          p: [12,13],    l: [BIRD] } # KC_S,     KC_T)
-  - {k: '\',          p: [21,22],    l: [BIRD] } # KC_X,     KC_C)
-  - {k: '|',          p: [22,23],    l: [BIRD] } # KC_C,     KC_D)
-  - {k: Ø,            p: [1,13],     l: [COMBOS], d: true, s: -0.2} # KC_W,     KC_T)
-  - {k: Æ,            p: [2,13],     l: [COMBOS],  d: true} # KC_F,     KC_T)
-  - {k: Å,            p: [11,13],    l: [COMBOS], a: bottom } # KC_R,     KC_T)
+  - {k: 'Z',          p: [21,22],    l: [BIRD] } # KC_X,     KC_C)
+  - {k: '\',          p: [22,23],    l: [BIRD] } # KC_C,     KC_D)
+  - {k: '"',            p: [1,13],     l: [COMBOS], d: true, s: -0.2} # KC_W,     KC_T)
+  - {k: "'",            p: [2,13],     l: [COMBOS],  d: true} # KC_F,     KC_T)
+  # - {k: Å,            p: [11,13],    l: [COMBOS], a: bottom } # KC_R,     KC_T)
   - {k: Panic,        p: [10,14],    l: [COMBOS], w: 40, a: top, o: 1.6 } # KC_A,     KC_G)
   - {k: Panic,        p: [15,19],    l: [COMBOS], w: 40, a: top, o: 1.6 } # KC_M,     KC_O)
   - {k: "'",          p: [3,13],     l: [NAV]} # KC_M,     KC_O)
   - {k: '"',          p: [6,16],     l: [NAV]} # KC_M,     KC_O)
-  - {k: Ø,            p: [2,12],     l: [NAV]} # KC_W,     KC_T)
-  - {k: Æ,            p: [8,18],     l: [NAV]} # KC_F,     KC_T)
-  - {k: Å,            p: [7,17],     l: [NAV]} # KC_R,     KC_T)
+  # - {k: Ø,            p: [2,12],     l: [NAV]} # KC_W,     KC_T)
+  # - {k: Æ,            p: [8,18],     l: [NAV]} # KC_F,     KC_T)
+  # - {k: Å,            p: [7,17],     l: [NAV]} # KC_R,     KC_T)
   - {k: V,            p: [1,2],      l: [BIRD]} # KC_R,     KC_T)
   - {k: Q,            p: [2,3],      l: [BIRD]} # KC_R,     KC_T)
-  - {k: ' ',          p: [16,17],    l: [BIRD], type: ghost} # KC_E,     KC_N)
+  - {k: '$$mdi:backspace-outline$$',          p: [16,17],    l: [BIRD]} # KC_E,     KC_N)
 
 
   # - {k: OLCTL,      p: [], l: ["BIRD"] } # KC_BSPC,  KC_N)

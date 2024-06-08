@@ -19,13 +19,7 @@ enum custom_keycodes {
     PANIC = QK_USER,
     TMUX,
     TKC_NAV,
-    OEM_START,
-    OEMLG = OEM_START, // Oneshot mods that exit the osl layer
-    OEMLC,
-    OEMRS,
-    OEMLA,
-    OEM_END = OEMLA,
-
+    MODLOCK,
     BRACKETS,
     BRACES,
     PARENS,

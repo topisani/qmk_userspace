@@ -14,6 +14,8 @@
 #define COMBO_TERM_PER_COMBO            // Adjust combo term for ease of combo.
 #define COMBO_STRICT_TIMER              // all keys must be hit within the term from the first keypress.
 
+#define ONESHOT_TAP_TOGGLE 2
+
 // SPACE SAVERS FOR ALL BOARDS.
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE

@@ -12,6 +12,8 @@
 #include "caps_word.h"
 #include "keycodes.h"
 #include "quantum.h"
+#include "quantum_keycodes.h"
+#include "timer.h"
 #include "topisani.h"
 #include "send_string.h"
 
@@ -59,7 +61,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     // Always return to the base layer
     state = 1 << layer;
-    
+
     state = layer_state_set_user_rgb(state);
     return state;
 }
@@ -104,7 +106,9 @@ bool num_mode_enable(keyrecord_t *record) {
         layer_on(_OSL);
         nav_mode_timer = timer_read();
     } else {
-        if (timer_elapsed(nav_mode_timer) < TAPPING_TERM) {
+        if (_num_mode_active && timer_elapsed(nav_mode_timer) < TAPPING_TERM * 2) {
+            _num_mode_active = false;
+        } else if (timer_elapsed(nav_mode_timer) < TAPPING_TERM) {
             // Tapping enables layer mode
             _num_mode_active = true;
         } else {
@@ -123,40 +127,10 @@ void num_mode_disable(void) {
     }
 }
 
-struct oem_mod_state_t {
-    uint8_t  mod;
-    uint16_t press_time;
-};
-static struct oem_mod_state_t oem_states[] = {
-    [OEMLA - OEM_START] = {.mod = MOD_BIT_LALT, 0},
-    [OEMLC - OEM_START] = {.mod = MOD_BIT_LCTRL, 0},
-    [OEMLG - OEM_START] = {.mod = MOD_BIT_LGUI, 0},
-    [OEMRS - OEM_START] = {.mod = MOD_BIT_RSHIFT, 0},
-};
-
-static void num_mode_oem_mod(uint8_t idx, keyrecord_t *record) {
-    struct oem_mod_state_t *state = &oem_states[idx];
-    if (record->event.pressed) {
-        state->press_time = record->event.time;
-        register_mods(state->mod);
-    } else {
-        if (TIMER_DIFF_16(record->event.time, state->press_time) > TAPPING_TERM) {
-            unregister_mods(state->mod);
-        } else {
-            unregister_mods(state->mod);
-            add_oneshot_mods(state->mod);
-        }
-        num_mode_disable();
-    }
-}
-
 bool num_mode_process(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case TKC_NAV:
             num_mode_enable(record);
-            return false;
-        case OEM_START ... OEM_END:
-            num_mode_oem_mod(keycode - OEM_START, record);
             return false;
         // Assess if we should exit layermode or continue processing normally.
         case OLALT:
@@ -181,6 +155,42 @@ bool num_mode_process(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
+
+// MODLOCK ////////////////////////////////////////////////////////////////////
+//
+// When MODLOCK is pressed, all currently held modifiers are locked active until
+// MODLOCK is released.
+
+static uint8_t  modlock_mask  = 0;
+static uint16_t modlock_timer = 0;
+
+static bool modlock_process_record(uint16_t keycode, keyrecord_t *record) {
+    add_weak_mods(modlock_mask);
+    switch (keycode) {
+        case MODLOCK: {
+            if (record->event.pressed) {
+                // modlock_mask = get_mods();
+                add_weak_mods(modlock_mask);
+                modlock_timer = timer_read();
+            } else {
+                del_weak_mods(modlock_mask);
+                modlock_mask = 0;
+                if (timer_elapsed(modlock_timer) < TAPPING_TERM) {
+                    add_oneshot_mods(modlock_mask);
+                }
+            }
+            return false;
+        } break;
+        case QK_MOD_TAP...QK_MOD_TAP_MAX: {
+            if (record->event.pressed) {
+                //modlock_mask |= QK_MOD_TAP_GET_MODS() ;
+            }
+        } break;
+    }
+    return true;
+}
+
+// CALLBACKS //////////////////////////////////////////////////////////////////
 
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -211,6 +221,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     uint8_t mod_state = get_mods();
     if (!num_mode_process(keycode, record)) return false;
     if (!tmux_prefix_process(keycode, record)) return false;
+    if (!modlock_process_record(keycode, record)) return false;
     switch (keycode) {
         case PANIC: {
             clear_oneshot_mods();
@@ -267,10 +278,10 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
-    if (IS_QK_MOD_TAP(keycode) ) {
+    if (IS_QK_MOD_TAP(keycode)) {
         keycode = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
     }
-    switch(keycode) {
+    switch (keycode) {
         case DK_AA:
         case DK_AE:
         case DK_OE:
@@ -279,7 +290,7 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case KC_DOT:
         case KC_COMMA:
         case KC_SLASH:
-        case KC_1... KC_0:
+        case KC_1 ... KC_0:
             return true;
         default:
             return false;
