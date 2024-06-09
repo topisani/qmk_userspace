@@ -50,15 +50,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         .......         , ....... , ....... , _______ , KC_SPC  , OSL(_NAV) , ORSFT   , KC_BSPC   , _______  , ....... , ....... , .......
     ),
     [_BIRD]=LAYOUT36(
-        KC_Q            , KC_C    , KC_L    , KC_F    , KC_B    , .......   , ....... , KC_J      , KC_Y     , KC_O    , KC_U    , XXXXXXX    ,
+        SH_MON          , KC_C    , KC_L    , KC_F    , KC_B    , .......   , ....... , KC_J      , KC_Y     , KC_O    , KC_U    , SH_MON,
         KC_R            , HA(S)   , HLS(N)  , HC(T)   , KC_P    , .......   , ....... , KC_K      , HC(H)    , HRS(E)  , HA(I)   , KC_A       ,
         KC_X            , KC_W    , KC_M    , KC_G    , KC_V    , .......   , ....... , KC_J      , KC_D     , KC_COMM , KC_DOT  , KC_SLSH    ,
         .......         , ....... , ....... , _______ , KC_SPC  , OSL(_NAV) , ORSFT   , KC_BSPC   , _______  , ....... , ....... , .......
     ),
     [_NAV]=LAYOUT36(
         KC_DEL          , KC_7    , KC_8    , KC_9    , KC_0    , .......   , ....... , DK_AE     , KC_PGUP  , KC_RCTL , KC_PGDN , XXXXXXX ,
-        TMUX            , HA(4)   , HLS(5)  , HC(6)   , QK_REP  , .......   , ....... , DK_OE     , KC_LEFT  , KC_UP   , KC_RGHT , XXXXXXX ,
-        OLGUI           , KC_1    , KC_2    , KC_3    , QK_AREP , .......   , ....... , DK_AA     , KC_HOME  , KC_DOWN , KC_END  , XXXXXXX ,
+        TMUX            , HA(4)   , HLS(5)  , HC(6)   , KC_LBRC , .......   , ....... , DK_OE     , KC_LEFT  , KC_UP   , KC_RGHT , XXXXXXX ,
+        OLGUI           , KC_1    , KC_2    , KC_3    , KC_RBRC , .......   , ....... , DK_AA     , KC_HOME  , KC_DOWN , KC_END  , XXXXXXX ,
         .......         , ....... , ....... , _______ , PANIC   , TO(_NAV)  , _______ , ORSFT     , _______  , ....... , ....... , .......
     ),
     [_MOUSE]=LAYOUT36(
@@ -77,10 +77,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 
-// const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
-//   {{11, 0}, {10, 0}, {9, 0}, {8, 0}, {7, 0}, {6, 0}, {5, 0}, {4, 0}, {3, 0}, {2, 0}, {1, 0}, {0, 0}},
-//   {{11, 1}, {10, 1}, {9, 1}, {8, 1}, {7, 1}, {6, 1}, {5, 1}, {4, 1}, {3, 1}, {2, 1}, {1, 1}, {0, 1}},
-//   {{11, 2}, {10, 2}, {9, 2}, {8, 2}, {7, 2}, {6, 2}, {5, 2}, {4, 2}, {3, 2}, {2, 2}, {1, 2}, {0, 2}},
-//   {{11, 3}, {10, 3}, {9, 3}, {8, 3}, {7, 3}, {6, 3}, {5, 3}, {4, 3}, {3, 3}, {2, 3}, {1, 3}, {0, 3}},
-// };
+const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
+    {{5, 4}, {4, 4}, {3, 4}, {2, 4}, {1, 4}, {0, 4} },
+    {{5, 5}, {4, 5}, {3, 5}, {2, 5}, {1, 5}, {0, 5} },
+    {{5, 6}, {4, 6}, {3, 6}, {2, 6}, {1, 6}, {0, 6} },
+    {{2, 7}, {1, 7}, {0, 7} },
+    
+    {{5, 0}, {4, 0}, {3, 0}, {2, 0}, {1, 0}, {0, 0} },
+    {{5, 1}, {4, 1}, {3, 1}, {2, 1}, {1, 1}, {0, 1} },
+    {{5, 2}, {4, 2}, {3, 2}, {2, 2}, {1, 2}, {0, 2} },
+    {{2, 3}, {1, 3}, {0, 3} },
+};
 

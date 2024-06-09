@@ -7,6 +7,7 @@ TAP_DANCE_ENABLE       = no
 AUTO_SHIFT_ENABLE      = no
 REPEAT_KEY_ENABLE      = yes
 KEY_OVERRIDE_ENABLE    = yes
+SWAP_HANDS_ENABLE      = yes
 
 # Disable unused features
 MAGIC_ENABLE	       = no

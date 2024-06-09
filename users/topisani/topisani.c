@@ -5,6 +5,7 @@
 #include "action_util.h"
 #include "color.h"
 #include "debug.h"
+#include "keyboard.h"
 #include "keycodes.h"
 #include "keymap_us.h"
 #include "modifiers.h"
@@ -19,17 +20,19 @@
 
 #ifdef RGBLIGHT_ENABLE
 #    include "rgblight/rgblight.h"
-static layer_state_t layer_state_set_user_rgb(layer_state_t state) {
-    uint8_t layer = get_highest_layer(state);
-    uint8_t val   = rgblight_get_val();
+
+void housekeeping_task_user() {
+    if (!is_keyboard_master())
+        return;
+    uint8_t layer = get_highest_layer(layer_state);
+    uint8_t val   = 0xFF;
     HSV     hsv   = {0x4B, 0x1a, val};
 
     switch (layer) {
         case _OSL:
-            hsv = (HSV){0xDC, 0xA0, val};
             break;
         case _NAV:
-            hsv = (HSV){0x94, 0xDD, val};
+            hsv = (HSV){0x94, 0xFF, val};
             break;
         case _MOUSE:
             hsv = (HSV){0x64, 0xFD, val};
@@ -38,8 +41,15 @@ static layer_state_t layer_state_set_user_rgb(layer_state_t state) {
             hsv = (HSV){0x40, 0xED, val};
             break;
     }
-    rgblight_sethsv_noeeprom(hsv.h, hsv.s, hsv.v);
-    return state;
+    
+    HSV rhsv = hsv;
+    
+    if (is_caps_word_on()) {
+        rhsv = (HSV){0xDC, 0xA0, val};
+    }
+
+    rgblight_sethsv_noeeprom(rhsv.h, rhsv.s, rhsv.v);
+    // rgblight_sethsv_at(hsv.h, hsv.s, hsv.v, 0);
 }
 
 void keyboard_post_init_user(void) {
@@ -61,8 +71,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     // Always return to the base layer
     state = 1 << layer;
-
-    state = layer_state_set_user_rgb(state);
     return state;
 }
 
@@ -231,6 +239,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             layer_move(0);
             caps_word_off();
+            swap_hands_off();
             return false;
         }
         case KC_BSPC: {
