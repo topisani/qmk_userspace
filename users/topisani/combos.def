@@ -33,7 +33,7 @@ COMB(combo_cln,         KC_EQUAL,       KC_H,     KC_I)
 
  // Right hand inner thumb
 COMB(combo_rit0,        OSL(_SYS),      ORSFT,    KC_N)
-COMB(combo_rit2,        TO(_NAV),      ORSFT,    KC_E)
+COMB(combo_rit2,        TO(_NAV),       ORSFT,    KC_E)
 COMB(combo_rit3,        TO(_MOUSE),     ORSFT,    KC_I)
 
 // Right hand outer thumb
@@ -60,8 +60,7 @@ COMB(combo_r_t,         DK_AA, 			KC_R,     KC_T)
 
 // Left hand vertical
 COMB(combo_p_t,         KC_QUOT,         KC_P,     KC_T)
-// COMB(combo_f_s,         DK_OE,           KC_F,     KC_S)
-
+// COMB(combo_f_s,        DK_OE,           KC_F,     KC_S)
 // COMB(combo_r_t,      ,               KC_R,     KC_T)
 
 // Left / Right panic using innermost/outermost centerrow 
