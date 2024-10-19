@@ -44,33 +44,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Z            , KC_X    , KC_C    , KC_D    , KC_V    , .......    , ....... , KC_K    , KC_H    , KC_COMM , KC_DOT  , KC_SLSH    ,
         .......         , ....... , ....... , _______ , KC_SPC  , OSL(_NAV)  , ORSFT   , KC_BSPC , _______ , ....... , ....... , .......
     ),
-    [_COLEMAK_DH]=LAYOUT36(
-        KC_Q            , KC_W    , KC_F    , KC_P    , KC_B    , .......    , ....... , KC_J    , KC_L    , KC_U    , KC_Y    , KC_QUOT    ,
-        KC_A            , HA(R)   , HLS(S)  , HC(T)   , KC_G    , .......    , ....... , KC_M    , HC(N)   , HRS(E)  , HA(I)   , KC_O       ,
-        KC_Z            , KC_X    , KC_C    , KC_D    , KC_V    , .......    , ....... , KC_K    , KC_H    , KC_COMM , KC_DOT  , KC_SLSH    ,
-        .......         , ....... , ....... , _______ , KC_SPC  , OSL(_NAV)  , ORSFT   , KC_BSPC , _______ , ....... , ....... , .......
-    ),
     [_BIRD]=LAYOUT36(
         SH_MON          , KC_C    , KC_L    , KC_F    , KC_B    , .......    , ....... , KC_J    , KC_Y    , KC_O    , KC_U    , SH_MON,
         KC_R            , HA(S)   , HLS(N)  , HC(T)   , KC_P    , .......    , ....... , KC_K    , HC(H)   , HRS(E)  , HA(I)   , KC_A       ,
         KC_X            , KC_W    , KC_M    , KC_G    , KC_V    , .......    , ....... , KC_J    , KC_D    , KC_COMM , KC_DOT  , KC_SLSH    ,
-        .......         , ....... , ....... , _______ , KC_SPC  , OSL(_NAV)  , ORSFT   , KC_BSPC , _______ , ....... , ....... , .......
+        .......         , ....... , ....... , KC_LCTL , KC_SPC  , OSL(_NAV)  , ORSFT   , KC_BSPC , KC_RCTL , ....... , ....... , .......
     ),
     [_NAV]=LAYOUT36(
-        KC_DEL          , KC_7    , KC_8    , KC_9    , KC_0    , .......    , ....... , DK_AE   , KC_PGUP , KC_RCTL , KC_PGDN , XXXXXXX ,
-        TMUX            , HA(4)   , HLS(5)  , HC(6)   , KC_LBRC , .......    , ....... , DK_OE   , KC_LEFT , KC_UP   , KC_RGHT , XXXXXXX ,
+        _______         , KC_7    , KC_8    , KC_9    , KC_0    , .......    , ....... , DK_AE   , KC_PGUP , KC_RCTL , KC_PGDN , _______ ,
+        TMUX            , HA(4)   , HLS(5)  , HC(6)   , KC_LBRC , .......    , ....... , DK_OE   , KC_LEFT , KC_UP   , KC_RGHT , KC_DEL ,
         OLGUI           , KC_1    , KC_2    , KC_3    , KC_RBRC , .......    , ....... , DK_AA   , KC_HOME , KC_DOWN , KC_END  , XXXXXXX ,
         .......         , ....... , ....... , _______ , PANIC   , OSL(_NAV)  , _______ , _______ , _______ , ....... , ....... , .......
     ),
     [_MOUSE]=LAYOUT36(
-        XXXXXXX         , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX , .......    , ....... , TABP    , KC_WH_U , KC_BTN1 , KC_WH_D , TABN       ,
+        _______         , KC_BTN3 , KC_BTN2 , KC_BTN1 , XXXXXXX , .......    , ....... , TABP    , KC_WH_U , KC_BTN1 , KC_WH_D , TABN       ,
         XXXXXXX         , HA(NO)  , HLS(NO) , HC(NO)  , XXXXXXX , .......    , ....... , KC_BTN4 , KC_MS_L , KC_MS_U , KC_MS_R , KC_BTN5    ,
         XXXXXXX         , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , .......    , ....... , XXXXXXX , KC_WH_L , KC_MS_D , KC_WH_R , XXXXXXX    ,
         .......         , ....... , ....... , _______ , PANIC   , TO(_MOUSE) , _______ , _______ , _______ , ....... , ....... , .......
     ),
     [_SYS]=LAYOUT36(
-        DF(_COLEMAK_DH) , KC_F7   , KC_F8   , KC_F9   , KC_F10  , .......    , ....... , KC_INS  , XXXXXXX , RGB_TOG , XXXXXXX , XXXXXXX    ,
-        DF(_BIRD)       , KC_F4   , KC_F5   , KC_F6   , KC_F11  , .......    , ....... , XXXXXXX , HC(NO)  , HLS(NO) , HA(NO)  , XXXXXXX    ,
+        XXXXXXX         , KC_F7   , KC_F8   , KC_F9   , KC_F10  , .......    , ....... , KC_INS  , XXXXXXX , RGB_TOG , XXXXXXX , XXXXXXX    ,
+        XXXXXXX         , KC_F4   , KC_F5   , KC_F6   , KC_F11  , .......    , ....... , XXXXXXX , HC(NO)  , HLS(NO) , HA(NO)  , XXXXXXX    ,
         XXXXXXX         , KC_F1   , KC_F2   , KC_F3   , KC_F12  , .......    , ....... , KC_PSCR , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX    ,
         .......         , ....... , ....... , _______ , PANIC   , TO(_SYS)   , _______ , _______ , _______ , ....... , ....... , .......
     )

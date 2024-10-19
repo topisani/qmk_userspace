@@ -226,7 +226,7 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
 // };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    uint8_t mod_state = get_mods();
+    // uint8_t mod_state = get_mods();
     if (!num_mode_process(keycode, record)) return false;
     if (!tmux_prefix_process(keycode, record)) return false;
     if (!modlock_process_record(keycode, record)) return false;
@@ -244,22 +244,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         case KC_BSPC: {
             // shift+backspace = delete
-            static bool delkey_registered;
-            if (record->event.pressed) {
-                if (mod_state & MOD_MASK_SHIFT) {
-                    del_mods(MOD_MASK_SHIFT);
-                    register_code(KC_DEL);
-                    delkey_registered = true;
-                    set_mods(mod_state);
-                    return false;
-                }
-            } else {
-                if (delkey_registered) {
-                    unregister_code(KC_DEL);
-                    delkey_registered = false;
-                    return false;
-                }
-            }
+            // static bool delkey_registered;
+            // if (record->event.pressed) {
+            //     if (mod_state & MOD_MASK_SHIFT) {
+            //         del_mods(MOD_MASK_SHIFT);
+            //         register_code(KC_DEL);
+            //         delkey_registered = true;
+            //         set_mods(mod_state);
+            //         return false;
+            //     }
+            // } else {
+            //     if (delkey_registered) {
+            //         unregister_code(KC_DEL);
+            //         delkey_registered = false;
+            //         return false;
+            //     }
+            // }
             // Let QMK process the KC_BSPC keycode as usual outside of shift
             return true;
         }
@@ -286,6 +286,7 @@ bool caps_word_press_user(uint16_t keycode) {
             return false; // Deactivate Caps Word.
     }
 }
+
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     if (IS_QK_MOD_TAP(keycode)) {
         keycode = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);

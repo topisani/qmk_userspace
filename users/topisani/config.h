@@ -2,7 +2,7 @@
 
 
 // Tapping settings
-#define TAPPING_TERM 200                 // Base tapping term
+#define TAPPING_TERM 150                 // Base tapping term
 #define QUICK_TAP_TERM TAPPING_TERM / 2  // Quick Tap Term to trigger auto-repeat
 
 // Allows media codes to properly register in macros and rotary encoder code
@@ -14,7 +14,7 @@
 #define COMBO_TERM_PER_COMBO            // Adjust combo term for ease of combo.
 #define COMBO_STRICT_TIMER              // all keys must be hit within the term from the first keypress.
 
-#define ONESHOT_TAP_TOGGLE 2
+#define ONESHOT_TAP_TOGGLE 0
 
 // SPACE SAVERS FOR ALL BOARDS.
 #undef LOCKING_SUPPORT_ENABLE

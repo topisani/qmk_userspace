@@ -2,12 +2,12 @@
 #include "keymap_us.h"
 
 // Parens, brackets and braces on center combos top row
-COMB(combo_pl,          KC_LPRN,        KC_P, KC_B)
-COMB(combo_pr,          KC_RPRN,        KC_J,     KC_L)
-COMB(combo_sql,         KC_LBRC,        KC_T,     KC_G)
-COMB(combo_sqr,         KC_RBRC,        KC_M,     KC_N)
-COMB(combo_sql2,         KC_LBRC,        KC_L,     KC_U)
-COMB(combo_sqr2,         KC_RBRC,        KC_U,     KC_Y)
+// COMB(combo_pl,          KC_LPRN,        KC_P, KC_B)
+// COMB(combo_pr,          KC_RPRN,        KC_J,     KC_L)
+// COMB(combo_sql,         KC_LBRC,        KC_T,     KC_G)
+// COMB(combo_sqr,         KC_RBRC,        KC_M,     KC_N)
+// COMB(combo_sql2,         KC_LBRC,        KC_L,     KC_U)
+// COMB(combo_sqr2,         KC_RBRC,        KC_U,     KC_Y)
 // COMB(combo_curll,       KC_LCBR,        KC_W,     KC_P)
 // COMB(combo_curlr,       KC_RCBR,        KC_L,     KC_Y)
 
@@ -15,7 +15,7 @@ COMB(combo_v,           KC_V,           KC_W,     KC_F)
 COMB(combo_q,           KC_Q,           KC_F,     KC_P)
 
 // Right hand middle row
-COMB(combo_e_n,         KC_BSPC,        KC_E,     KC_N)
+// COMB(combo_e_n,         KC_BSPC,        KC_E,     KC_N)
 COMB(combo_n_i,         KC_COLN,        KC_N,     KC_I)
 COMB(combo_enter,       KC_ENTER,       KC_I,     KC_E)
 
@@ -42,7 +42,7 @@ COMB(combo_rot2,        ORSFT,          KC_BSPC,  KC_E)
 COMB(combo_rot3,        OLALT,          KC_BSPC,  KC_I)
 
 // Right hand vertical
-COMB(combo_l_n,         KC_DQT,         KC_L,     KC_N)
+// COMB(combo_l_n,         KC_DQT,         KC_L,     KC_N)
 // COMB(combo_u_e,         DK_AA,          KC_U,     KC_E)
 // COMB(combo_y_i,         DK_AE,          KC_Y,     KC_I)
 
@@ -56,10 +56,10 @@ COMB(combo_x_c,         KC_Z,           KC_X,     KC_C)
 
 COMB(combo_f_t,         KC_QUOT,		KC_F,     KC_T)
 COMB(combo_w_t,         KC_DQUO, 		KC_W,     KC_T)
-COMB(combo_r_t,         DK_AA, 			KC_R,     KC_T)
+// COMB(combo_r_t,         DK_AA, 			KC_R,     KC_T)
 
 // Left hand vertical
-COMB(combo_p_t,         KC_QUOT,         KC_P,     KC_T)
+// COMB(combo_p_t,         KC_QUOT,         KC_P,     KC_T)
 // COMB(combo_f_s,        DK_OE,           KC_F,     KC_S)
 // COMB(combo_r_t,      ,               KC_R,     KC_T)
 
