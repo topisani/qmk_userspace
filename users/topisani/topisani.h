@@ -50,3 +50,4 @@ enum custom_keycodes {
 #define DK_AE RALT(KC_E)
 #define DK_OE RALT(KC_O)
 #define DK_AA RALT(KC_A)
+#define DEAD_GREEK RALT(KC_G)

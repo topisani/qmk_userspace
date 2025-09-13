@@ -32,7 +32,7 @@ layers:
   NAV:
     - [$$mdi:swap-horizontal$$, 7, 8, 9, 0, Æ, PgUp, Comp, PgDown, $$mdi:swap-horizontal$$]
     - [TMUX, {h: Alt, t: 4}, {h: Shift, t: 5}, {h: Ctrl, t: 6}, '[', Ø, $$mdi:chevron-left$$, $$mdi:chevron-up$$, $$mdi:chevron-right$$, $$mdi:backspace-reverse-outline$$]
-    - [Gui, 1, 2, 3, ']', Å, Home, $$mdi:chevron-down$$, End, null]
+    - [Gui, 1, 2, 3, ']', Å, Home, $$mdi:chevron-down$$, End, AltGr]
     - DEF
     - {}
     - {t: $$mdi:apple-keyboard-shift$$, h: 1-shot}
@@ -85,8 +85,8 @@ combos:
   - {k: SYS,          p: [32,16],    l: [SYS], a: right } # ORSFT,    KC_N)
   - {k: NAV,          p: [32,17],    l: [SYS], a: right } # ORSFT,    KC_E)
   - {k: MOUSE,        p: [32,18],    l: [SYS], a: right,  w: 50} # ORSFT,    KC_I)
-  - {k: 'ESC',        p: [11,12],    l: [BIRD] } # KC_R,     KC_S)
-  - {k: $$mdi:keyboard-tab$$,          p: [12,13],    l: [BIRD] } # KC_S,     KC_T)
+  - {k: $$mdi:keyboard-tab$$,        p: [11,12],    l: [BIRD] } # KC_R,     KC_S)
+  - {k: 'ESC',          p: [12,13],    l: [BIRD] } # KC_S,     KC_T)
   - {k: 'Z',          p: [21,22],    l: [BIRD] } # KC_X,     KC_C)
   - {k: '\',          p: [22,23],    l: [BIRD] } # KC_C,     KC_D)
   - {k: '"',            p: [1,13],     l: [NAV], d: true, s: -0.2} # KC_W,     KC_T)
